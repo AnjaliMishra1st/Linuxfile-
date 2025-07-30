@@ -1,0 +1,114 @@
+ishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ cd Desktop
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop
+$ ls
+'Removed Apps.html'   devops-lab/
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop
+$ cd devops-lab
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ ls
+Dockerfile  app.py  requirements.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ docker build -t devops-lab .
+[+] Building 3.9s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 140B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.9                            3.5s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load build context                                                        0.0s
+ => => transferring context: 92B                                                         0.0s
+ => [1/4] FROM docker.io/library/python:3.9@sha256:754dbbaf5fe730bb2460efb3300293c62c22  0.0s
+ => CACHED [2/4] WORKDIR /app                                                            0.0s
+ => CACHED [3/4] COPY . .                                                                0.0s
+ => CACHED [4/4] RUN pip install -r requirements.txt                                     0.0s
+ => exporting to image                                                                   0.1s
+ => => exporting layers                                                                  0.0s
+ => => writing image sha256:19a050c696bdb7af0f9e8b56af4df665df93909b57ad0c65080263fa801  0.0s
+ => => naming to docker.io/library/devops-lab                                            0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/zj98qrg2byb0z8okb2h25cllx
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ docker run -p 5000:5000 devops-lab
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+Press CTRL+C to quit
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ cd ~/Desktop/devops-lab
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ ls
+Dockerfile  app.py  requirements.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ cat app.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "🚀 Hello from DevOps Lab!"
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ docker build -t devops-lab .
+[+] Building 3.5s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 140B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.9                            3.3s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load build context                                                        0.0s
+ => => transferring context: 92B                                                         0.0s
+ => [1/4] FROM docker.io/library/python:3.9@sha256:754dbbaf5fe730bb2460efb3300293c62c22  0.0s
+ => CACHED [2/4] WORKDIR /app                                                            0.0s
+ => CACHED [3/4] COPY . .                                                                0.0s
+ => CACHED [4/4] RUN pip install -r requirements.txt                                     0.0s
+ => exporting to image                                                                   0.0s
+ => => exporting layers                                                                  0.0s
+ => => writing image sha256:19a050c696bdb7af0f9e8b56af4df665df93909b57ad0c65080263fa801  0.0s
+ => => naming to docker.io/library/devops-lab                                            0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/umcezuhcghdb74mst0zkpur4f
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/Desktop/devops-lab
+$ docker run -p 5000:5000 devops-lab
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+Press CTRL+C to quit
+172.17.0.1 - - [30/Jul/2025 13:13:27] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [30/Jul/2025 13:13:27] "GET /favicon.ico HTTP/1.1" 404 -
+172.17.0.1 - - [30/Jul/2025 13:13:52] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [30/Jul/2025 13:13:52] "GET /favicon.ico HTTP/1.1" 404 -
+
+  
