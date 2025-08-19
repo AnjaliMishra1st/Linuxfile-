@@ -1,0 +1,432 @@
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker pull anjalimishra123/my-python-app:latest
+latest: Pulling from anjalimishra123/my-python-app
+Digest: sha256:df8ec825ca71dcea37fb8973c4111d2b545e15b42baba80f3c372f3729cd4f93
+Status: Image is up to date for anjalimishra123/my-python-app:latest
+docker.io/anjalimishra123/my-python-app:latest
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker run anjalimishra123/my-python-app:latest
+✅ Python script inside Jenkins pipeline works!
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker run -it anjalimishra123/my-python-app:latest sh
+# docker ps -a
+sh: 1: docker: not found
+# ^C
+# exit
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker run -it anjalimishra123/my-python-app:latest sh
+# docker ps -a
+sh: 1: docker: not found
+# docker pull anjalimishra123/my-python-app:latest
+sh: 2: docker: not found
+# ^C
+# exit
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker ps -a
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED         STATUS                       PORTS                                              NAMES
+c85ae604ccdd   anjalimishra123/my-python-app:latest   "sh"                     5 minutes ago   Exited (130) 3 minutes ago                                                      unruffled_kapitsa
+960ff9668a3e   anjalimishra123/my-python-app:latest   "sh"                     24 hours ago    Exited (130) 24 hours ago                                                       blissful_sanderson
+bd8bf9045bee   anjalimishra123/my-python-app:latest   "python mycode.py"       24 hours ago    Exited (0) 24 hours ago                                                         quirky_northcutt
+e81ecd598048   my-python-app                          "python mycode.py"       25 hours ago    Exited (0) 25 hours ago                                                         competent_chaum
+4aa515e7fc5a   my-python-app                          "python mycode.py"       44 hours ago    Exited (0) 44 hours ago                                                         nifty_jackson
+01312f7694b2   jenkins/jenkins:lts                    "/usr/bin/tini -- /u…"   2 weeks ago     Exited (255) 44 hours ago    0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+40f9092f5374   jenkins/jenkins:lts                    "/usr/bin/tini -- /u…"   2 weeks ago     Up 25 hours                  0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+b804a32df4ae   labx-app                               "/docker-entrypoint.…"   2 weeks ago     Exited (255) 25 hours ago    0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker run -it anjalimishra123/my-python-app:latest sh
+# docker run --name my-python-run anjalimishra123/my-python-app:latest python mycode.py
+sh: 1: docker: not found
+# ^C
+# exit
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker run --name my-python-run anjalimishra123/my-python-app:latest python mycode.py
+✅ Python script inside Jenkins pipeline works!
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker run -it -p 5000:5000 anjalimishra123/my-python-app:latest
+✅ Python script inside Jenkins pipeline works!
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE                 COMMAND                  CREATED       STATUS        PORTS                                              NAMES
+40f9092f5374   jenkins/jenkins:lts   "/usr/bin/tini -- /u…"   2 weeks ago   Up 25 hours   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker run -d -p 5000:5000 --name python-app anjalimishra123/my-python-app:latest
+93dd5c2f21c98612164cf4113c62631144a5b86ff365006d41f7cc954010602a
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE                 COMMAND                  CREATED       STATUS        PORTS                                              NAMES
+40f9092f5374   jenkins/jenkins:lts   "/usr/bin/tini -- /u…"   2 weeks ago   Up 25 hours   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE                 COMMAND                  CREATED       STATUS        PORTS                                              NAMES
+40f9092f5374   jenkins/jenkins:lts   "/usr/bin/tini -- /u…"   2 weeks ago   Up 25 hours   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker ps -a
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED          STATUS                        PORTS                                              NAMES
+93dd5c2f21c9   anjalimishra123/my-python-app:latest   "python mycode.py"       3 minutes ago    Exited (0) 3 minutes ago                                                         python-app
+477d5860bb41   anjalimishra123/my-python-app:latest   "python mycode.py"       12 minutes ago   Exited (0) 12 minutes ago                                                        vibrant_gagarin
+1b3db8ba6c24   anjalimishra123/my-python-app:latest   "python mycode.py"       17 minutes ago   Exited (0) 17 minutes ago                                                        my-python-run
+eefdd32822f6   anjalimishra123/my-python-app:latest   "sh"                     18 minutes ago   Exited (130) 17 minutes ago                                                      peaceful_cori
+c85ae604ccdd   anjalimishra123/my-python-app:latest   "sh"                     25 minutes ago   Exited (130) 23 minutes ago                                                      unruffled_kapitsa
+960ff9668a3e   anjalimishra123/my-python-app:latest   "sh"                     25 hours ago     Exited (130) 25 hours ago                                                        blissful_sanderson
+bd8bf9045bee   anjalimishra123/my-python-app:latest   "python mycode.py"       25 hours ago     Exited (0) 25 hours ago                                                          quirky_northcutt
+e81ecd598048   my-python-app                          "python mycode.py"       25 hours ago     Exited (0) 25 hours ago                                                          competent_chaum
+4aa515e7fc5a   my-python-app                          "python mycode.py"       44 hours ago     Exited (0) 44 hours ago                                                          nifty_jackson
+01312f7694b2   jenkins/jenkins:lts                    "/usr/bin/tini -- /u…"   2 weeks ago      Exited (255) 44 hours ago     0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+40f9092f5374   jenkins/jenkins:lts                    "/usr/bin/tini -- /u…"   2 weeks ago      Up 25 hours                   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+b804a32df4ae   labx-app                               "/docker-entrypoint.…"   2 weeks ago      Exited (255) 25 hours ago     0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ nano Dockerfile
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker build -t anjalimishra123/my-python-app:latest .
+[+] Building 423.1s (7/9)                                                docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 135B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       4.7s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [1/4] FROM docker.io/library/python:3.9-slim@sha256:914169c7c8398b1b90c0b0ff921c80  21.0s
+ => => resolve docker.io/library/python:3.9-slim@sha256:914169c7c8398b1b90c0b0ff921c802  0.1s
+ => => sha256:914169c7c8398b1b90c0b0ff921c8027445e39d7c25dc440337e56c 10.36kB / 10.36kB  0.0s
+ => => sha256:213766eae7e1ad5da6140428e7f15db89f2c83caf906cc06fc9c5c8a0 1.74kB / 1.74kB  0.0s
+ => => sha256:28f8802246faa922c08dd76e3ec467e3cb4278af72e99e1afa2f68dfb 5.30kB / 5.30kB  0.0s
+ => => sha256:0219e1e5e6ef3ef9d91f78826576a112b1c20622c10c294a4a1058114 1.29MB / 1.29MB  3.9s
+ => => sha256:5ec99fe17015e703c289d110b020e4e362d5b425be957d68bfb400d 13.37MB / 13.37MB  9.0s
+ => => sha256:ea3499df304f0a84e9f076a05f0cfe2a64d8fcb884894ce682df9204c6a18 249B / 249B  4.3s
+ => => extracting sha256:0219e1e5e6ef3ef9d91f78826576a112b1c20622c10c294a4a105811454d1c  4.2s
+ => => extracting sha256:5ec99fe17015e703c289d110b020e4e362d5b425be957d68bfb400d56d83f  11.0s
+ => => extracting sha256:ea3499df304f0a84e9f076a05f0cfe2a64d8fcb884894ce682df9204c6a18a  0.0s
+ => ERROR [internal] load build context                                                407.7s
+ => => transferring context: 694.07MB                                                  407.6s
+ => [2/4] WORKDIR /app                                                                   1.7s
+------
+ > [internal] load build context:
+------
+ERROR: failed to solve: failed to checksum file AppData/Local/Application Data: archive/tar: unknown file mode ?rwxr-xr-x
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/yv1w9dany5ebyesgob88dxrpn
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ mkdir flask-docker-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ cd flask-docker-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ nano Dockerfile
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ nano .dockerignore
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker build -t anjalimishra123/my-python-app:latest .
+[+] Building 11.4s (10/10) FINISHED                                           docker:desktop-l
+ => [internal] load build definition from Dockerfile
+ => => transferring dockerfile: 134B
+ => [internal] load metadata for docker.io/library/python:3.9-slim
+ => [auth] library/python:pull token for registry-1.docker.io
+ => [internal] load .dockerignore
+ => => transferring context: 108B
+ => [1/4] FROM docker.io/library/python:3.9-slim@sha256:914169c7c8398b1b90c0b0ff921c8027445e
+ => [internal] load build context
+ => => transferring context: 481B
+ => CACHED [2/4] WORKDIR /app
+ => [3/4] COPY . /app
+ => [4/4] RUN pip install flask
+ => exporting to image
+ => => exporting layers
+ => => writing image sha256:fe3681a83c128b9ff33f87c0a088240219035046cf2588bab2392a2ebfd6e02b
+ => => naming to docker.io/anjalimishra123/my-python-app:latest
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/mdgdawx9uknllok1qczf
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker run -d -p 5000:5000 --name python-app anjalimishra123/my-python-app:latest
+docker: Error response from daemon: Conflict. The container name "/python-app" is already in u container "93dd5c2f21c98612164cf4113c62631144a5b86ff365006d41f7cc954010602a". You have to remor rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker ps -a
+CONTAINER ID   IMAGE                 COMMAND                  CREATED          STATUS
+          PORTS                                              NAMES
+93dd5c2f21c9   3051466f66a2          "python mycode.py"       25 minutes ago   Exited (0) 25 ms ago                                                        python-app
+477d5860bb41   3051466f66a2          "python mycode.py"       34 minutes ago   Exited (0) 34 ms ago                                                        vibrant_gagarin
+1b3db8ba6c24   3051466f66a2          "python mycode.py"       39 minutes ago   Exited (0) 39 ms ago                                                        my-python-run
+eefdd32822f6   3051466f66a2          "sh"                     40 minutes ago   Exited (130) 40tes ago                                                      peaceful_cori
+c85ae604ccdd   3051466f66a2          "sh"                     48 minutes ago   Exited (130) 45tes ago                                                      unruffled_kapitsa
+960ff9668a3e   3051466f66a2          "sh"                     25 hours ago     Exited (130) 25s ago                                                        blissful_sanderson
+bd8bf9045bee   3051466f66a2          "python mycode.py"       25 hours ago     Exited (0) 25 hago                                                          quirky_northcutt
+e81ecd598048   my-python-app         "python mycode.py"       26 hours ago     Exited (0) 26 hago                                                          competent_chaum
+4aa515e7fc5a   my-python-app         "python mycode.py"       44 hours ago     Exited (0) 44 hago                                                          nifty_jackson
+01312f7694b2   jenkins/jenkins:lts   "/usr/bin/tini -- /u…"   2 weeks ago      Exited (255) 44s ago     0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+40f9092f5374   jenkins/jenkins:lts   "/usr/bin/tini -- /u…"   2 weeks ago      Up 26 hours
+          0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+b804a32df4ae   labx-app              "/docker-entrypoint.…"   2 weeks ago      Exited (255) 26s ago     0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker rm python-app
+python-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker stop python-app
+Error response from daemon: No such container: python-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker run -d -p 5000:5000 --name python-app anjalimishra123/my-python-app:latest
+4a8f9af3ada62224808c17459937e3140749bc33e756c8348558ce14767bc5a7
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker ps
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED        US          PORTS                                              NAMES
+4a8f9af3ada6   anjalimishra123/my-python-app:latest   "python app.py"          9 seconds ago  0 seconds   0.0.0.0:5000->5000/tcp                             python-app
+40f9092f5374   jenkins/jenkins:lts                    "/usr/bin/tini -- /u…"   2 weeks ago    6 hours     0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker logs python-app
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a productSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.3:5000
+Press CTRL+C to quit
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker logs python-app
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a productSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.3:5000
+Press CTRL+C to quit
+172.17.0.1 - - [19/Aug/2025 14:23:42] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [19/Aug/2025 14:23:42] "GET /favicon.ico HTTP/1.1" 404 -
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker build -t anjalimishra123/my-python-app:latest .
+[+] Building 3.5s (10/10) FINISHED                                            docker:desktop-l
+ => [internal] load build definition from Dockerfile
+ => => transferring dockerfile: 134B
+ => [internal] load metadata for docker.io/library/python:3.9-slim
+ => [auth] library/python:pull token for registry-1.docker.io
+ => [internal] load .dockerignore
+ => => transferring context: 108B
+ => [1/4] FROM docker.io/library/python:3.9-slim@sha256:914169c7c8398b1b90c0b0ff921c8027445e
+ => [internal] load build context
+ => => transferring context: 89B
+ => CACHED [2/4] WORKDIR /app
+ => CACHED [3/4] COPY . /app
+ => CACHED [4/4] RUN pip install flask
+ => exporting to image
+ => => exporting layers
+ => => writing image sha256:fe3681a83c128b9ff33f87c0a088240219035046cf2588bab2392a2ebfd6e02b
+ => => naming to docker.io/anjalimishra123/my-python-app:latest
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/n88o5lvvw723b3jk7rvk
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker stop python-app
+python-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker rm python-app
+python-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker run -d -p 5000:5000 --name python-app anjalimishra123/my-python-app:latest
+65f4bbaa4f301c3586be41c7eafd8bf5d651b0696bf8b9bce1df75a11d52fc6e
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker login
+Authenticating with existing credentials... [Username: anjalimishra123]
+
+i Info → To login with a different account, run 'docker logout' followed by 'docker login'
+
+
+Login Succeeded
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker push anjalimishra123/my-python-app:latest
+The push refers to repository [docker.io/anjalimishra123/my-python-app]
+aa94dde85c51: Pushed
+a9f0e26ec84c: Pushed
+fd31407a05b1: Pushed
+1e14701bee48: Mounted from library/python
+dd6300239975: Mounted from library/python
+2cbd282d81a0: Mounted from library/python
+e6a3842ebc7f: Layer already exists
+latest: digest: sha256:6fadc2ebfdfd764b3015399db78663e3ae53e66d0c06a8bb1dfc6cdf53ad1150 size:
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker pull anjalimishra123/my-python-app:latest
+latest: Pulling from anjalimishra123/my-python-app
+Digest: sha256:6fadc2ebfdfd764b3015399db78663e3ae53e66d0c06a8bb1dfc6cdf53ad1150
+Status: Image is up to date for anjalimishra123/my-python-app:latest
+docker.io/anjalimishra123/my-python-app:latest
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker run -d -p 5000:5000 anjalimishra123/my-python-app
+291da24ce498dc3e5ff3dad92c036f25740a2d75196817b9e84e051df1a9585b
+docker: Error response from daemon: failed to set up container networking: driver failed progrg external connectivity on endpoint relaxed_lovelace (9159f311262826f4fec429105d13a56f485bad9b91db9f4b534d00f33ab): Bind for 0.0.0.0:5000 failed: port is already allocated
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^M
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker ps
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED        US         PORTS                                              NAMES
+65f4bbaa4f30   anjalimishra123/my-python-app:latest   "python app.py"          9 minutes ago   minutes   0.0.0.0:5000->5000/tcp                             python-app
+40f9092f5374   jenkins/jenkins:lts                    "/usr/bin/tini -- /u…"   2 weeks ago    6 hours    0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker exec -it 65f4bbaa4f30 /bin/bash
+OCI runtime exec failed: exec failed: unable to start container process: exec: "C:/Program Filt/usr/bin/bash": stat C:/Program Files/Git/usr/bin/bash: no such file or directory: unknown
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ls
+Dockerfile  app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ python app.py
+Traceback (most recent call last):
+  File "C:\Users\mishr\flask-docker-app\app.py", line 1, in <module>
+    from flask import Flask
+ModuleNotFoundError: No module named 'flask'
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker ps
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED        TUS          PORTS                                              NAMES
+65f4bbaa4f30   anjalimishra123/my-python-app:latest   "python app.py"          13 minutes ago 13 minutes   0.0.0.0:5000->5000/tcp                             python-app
+40f9092f5374   jenkins/jenkins:lts                    "/usr/bin/tini -- /u…"   2 weeks ago    26 hours     0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^[[200~docker exec -it 65f4bbaa4f30 /bin/bash
+bash: $'\E[200~docker': command not found
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker exec -it 65f4bbaa4f30 /bin/bash
+OCI runtime exec failed: exec failed: unable to start container process: exec: "C:/Program Filt/usr/bin/bash": stat C:/Program Files/Git/usr/bin/bash: no such file or directory: unknown
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker exec -it 40f9092f5374 /bin/bash
+OCI runtime exec failed: exec failed: unable to start container process: exec: "C:/Program Filt/usr/bin/bash": stat C:/Program Files/Git/usr/bin/bash: no such file or directory: unknown
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker exec -it 65f4bbaa4f30 sh
+# winpty docker exec -it 65f4bbaa4f30 /bin/bash
+sh: 1: winpty: not found
+#
+# ^C
+# exit
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker ps
+CONTAINER ID   IMAGE                                  COMMAND                  CREATED        TUS          PORTS                                              NAMES
+65f4bbaa4f30   anjalimishra123/my-python-app:latest   "python app.py"          18 minutes ago 18 minutes   0.0.0.0:5000->5000/tcp                             python-app
+40f9092f5374   jenkins/jenkins:lts                    "/usr/bin/tini -- /u…"   2 weeks ago    26 hours     0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker exec -it 65f4bbaa4f30 sh
+Home-page:
+Author:
+Author-email:
+License:
+Location: /usr/local/lib/python3.9/site-packages
+Requires: blinker, click, importlib-metadata, itsdangerous, jinja2, markupsafe, werkzeug
+Required-by:
+# ^C
+# python app.py
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 5000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+# ^C
+
