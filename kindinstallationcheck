@@ -1,0 +1,45 @@
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ kind version
+kind v0.29.0 go1.24.2 windows/amd64
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ kubectl version --client
+Client Version: v1.32.2
+Kustomize Version: v5.5.0
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ kind get clusters
+ERROR: failed to list clusters: command "docker ps -a --filter label=io.x-k8s.kind.cluster --format '{{.Label "io.x-k8s.kind.cluster"}}'" failed with error: exit status 1
+
+Command Output: error during connect: Get "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/v1.48/containers/json?all=1&filters=%7B%22label%22%3A%7B%22io.x-k8s.kind.cluster%22%3Atrue%7D%7D": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE          COMMAND   CREATED       STATUS          PORTS     NAMES
+960ff9668a3e   3051466f66a2   "sh"      12 days ago   Up 23 seconds             blissful_sanderson
+
+//kind create cluster --name devops-lab
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ kind create cluster --name devops-lab
+Creating cluster "devops-lab" ...
+ • Ensuring node image (kindest/node:v1.33.1) 🖼  ...
+ ✓ Ensuring node image (kindest/node:v1.33.1) 🖼
+ • Preparing nodes 📦   ...
+ ✓ Preparing nodes 📦
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+Set kubectl context to "kind-devops-lab"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-devops-lab
+
+Have a nice day! 👋
