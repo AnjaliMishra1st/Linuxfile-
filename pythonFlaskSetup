@@ -1,0 +1,877 @@
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED       STATUS              PORTS                       NAMES
+26986d76d522   kindest/node:v1.33.1   "/usr/local/bin/entr…"   2 weeks ago   Up About a minute   127.0.0.1:55557->6443/tcp   devops-lab-control-plane
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED       STATUS          PORTS                                              NAMES
+52856b3f8ee7   fe3681a83c12           "python app.py"          2 weeks ago   Up 3 minutes    0.0.0.0:5000->5000/tcp                             ecstatic_heisenberg
+26986d76d522   kindest/node:v1.33.1   "/usr/local/bin/entr…"   2 weeks ago   Up 6 minutes    127.0.0.1:55557->6443/tcp                          devops-lab-control-plane
+eefdd32822f6   3051466f66a2           "sh"                     4 weeks ago   Up 2 minutes                                                       peaceful_cori
+c85ae604ccdd   3051466f66a2           "sh"                     4 weeks ago   Up 21 seconds                                                      unruffled_kapitsa
+960ff9668a3e   3051466f66a2           "sh"                     4 weeks ago   Up 46 seconds                                                      blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts    "/usr/bin/tini -- /u…"   6 weeks ago   Up 3 minutes    0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app               "/docker-entrypoint.…"   6 weeks ago   Up 2 minutes    0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker login
+Authenticating with existing credentials... [Username: anjalimishra123]
+
+i Info → To login with a different account, run 'docker logout' followed by 'docker login'
+
+
+Login Succeeded
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ecstatic_heisenberg (Python app)
+bash: syntax error near unexpected token `Python'
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ecstatic_heisenberg
+bash: ecstatic_heisenberg: command not found
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker images
+REPOSITORY                      TAG        IMAGE ID       CREATED        SIZE
+anjalimishra123/flask-app       latest     cc0df17154e9   22 hours ago   131MB
+flask-app                       latest     cc0df17154e9   22 hours ago   131MB
+anjalimishra123/flask-app       v1         fe3681a83c12   4 weeks ago    132MB
+anjalimishra123/my-python-app   latest     fe3681a83c12   4 weeks ago    132MB
+flask-app                       v1         fe3681a83c12   4 weeks ago    132MB
+my-python-app                   latest     3051466f66a2   5 weeks ago    629MB
+anjalimishra123/my-python-app   <none>     3051466f66a2   5 weeks ago    629MB
+python                          3.9-slim   28f8802246fa   6 weeks ago    120MB
+labx-app                        latest     d365b3ad2219   6 weeks ago    52.5MB
+jenkins/jenkins                 lts        627182afbe2b   8 weeks ago    472MB
+kindest/node                    <none>     096e5ef9ea70   2 months ago   1.07GB
+kindest/node                    <none>     d6b20550c77b   4 months ago   1.07GB
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker run -p 5000:5000 anjalimishra123/flask-app:latest
+docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint happy_cori (3821d09383a0a2349d1d325676c2963bd419d9f43bed484d733c9e678fa9e030): Bind for 0.0.0.0:5000 failed: port is already allocated
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED       STATUS          PORTS                                              NAMES
+52856b3f8ee7   fe3681a83c12           "python app.py"          2 weeks ago   Up 18 minutes   0.0.0.0:5000->5000/tcp                             ecstatic_heisenberg
+26986d76d522   kindest/node:v1.33.1   "/usr/local/bin/entr…"   2 weeks ago   Up 21 minutes   127.0.0.1:55557->6443/tcp                          devops-lab-control-plane
+eefdd32822f6   3051466f66a2           "sh"                     4 weeks ago   Up 17 minutes                                                      peaceful_cori
+c85ae604ccdd   3051466f66a2           "sh"                     4 weeks ago   Up 15 minutes                                                      unruffled_kapitsa
+960ff9668a3e   3051466f66a2           "sh"                     4 weeks ago   Up 15 minutes                                                      blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts    "/usr/bin/tini -- /u…"   6 weeks ago   Up 18 minutes   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app               "/docker-entrypoint.…"   6 weeks ago   Up 17 minutes   0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker stop <container_id>
+bash: syntax error near unexpected token `newline'
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker stop 52856b3f8ee7
+52856b3f8ee7
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker run -p 5000:5000 anjalimishra123/flask-app:latest
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.3:5000
+Press CTRL+C to quit
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED       STATUS          PORTS                                              NAMES
+26986d76d522   kindest/node:v1.33.1   "/usr/local/bin/entr…"   2 weeks ago   Up 30 minutes   127.0.0.1:55557->6443/tcp                          devops-lab-control-plane
+eefdd32822f6   3051466f66a2           "sh"                     4 weeks ago   Up 26 minutes                                                      peaceful_cori
+c85ae604ccdd   3051466f66a2           "sh"                     4 weeks ago   Up 24 minutes                                                      unruffled_kapitsa
+960ff9668a3e   3051466f66a2           "sh"                     4 weeks ago   Up 24 minutes                                                      blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts    "/usr/bin/tini -- /u…"   6 weeks ago   Up 27 minutes   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app               "/docker-entrypoint.…"   6 weeks ago   Up 26 minutes   0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ docker build -t anjalimishra123/flask-app:latest .
+[+] Building 669.6s (5/8)                                                docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 135B                                                     0.1s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [1/4] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => ERROR [internal] load build context                                                643.7s
+ => => transferring context: 848.09MB                                                  643.4s
+------
+ > [internal] load build context:
+------
+ERROR: failed to solve: failed to checksum file AppData/Local/Application Data: archive/tar: unknown file mode ?rwxr-xr-x
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/x53stfyjsy1gj1833br6ft9fb
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ cd ~/flask-docker-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ls
+# Dockerfile  app.py  requirements.txt  flask-deployment.yaml
+Dockerfile  app.py  flask-deployment.yaml  requirements.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker run -d -p 5000:5000 anjalimishra123/flask-app:latest
+4badcd4caef2186da4d23a52bfb766e065bcf34be2a66dc1dd84286e177e67f4
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker ps
+CONTAINER ID   IMAGE                              COMMAND                  CREATED         STATUS          PORTS                                              NAMES
+4badcd4caef2   anjalimishra123/flask-app:latest   "python app.py"          9 seconds ago   Up 10 seconds   0.0.0.0:5000->5000/tcp                             great_kilby
+26986d76d522   kindest/node:v1.33.1               "/usr/local/bin/entr…"   3 weeks ago     Up 48 minutes   127.0.0.1:55557->6443/tcp                          devops-lab-control-plane
+eefdd32822f6   3051466f66a2                       "sh"                     4 weeks ago     Up 44 minutes                                                      peaceful_cori
+c85ae604ccdd   3051466f66a2                       "sh"                     4 weeks ago     Up 42 minutes                                                      unruffled_kapitsa
+960ff9668a3e   3051466f66a2                       "sh"                     4 weeks ago     Up 42 minutes                                                      blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts                "/usr/bin/tini -- /u…"   6 weeks ago     Up 45 minutes   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app                           "/docker-entrypoint.…"   6 weeks ago     Up 44 minutes   0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ echo "flask" > requirements.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker build -t anjalimishra123/flask-app:latest .
+[+] Building 1.3s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 359B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 108B                                                        0.0s
+ => [1/5] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => [internal] load build context                                                        0.0s
+ => => transferring context: 1.48kB                                                      0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt /app/                                             0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . /app                                                                    0.1s
+ => exporting to image                                                                   0.3s
+ => => exporting layers                                                                  0.2s
+ => => writing image sha256:38e15ebdb31fa41fcbc98a68a103c0fd52325cd03bb2c06ad88018c44e9  0.0s
+ => => naming to docker.io/anjalimishra123/flask-app:latest                              0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/xodkfmwth37t5tacnwdz0xncs
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker push anjalimishra123/flask-app:latest
+The push refers to repository [docker.io/anjalimishra123/flask-app]
+83344be5bd82: Pushed
+67a35321dd24: Pushed
+1797c1642d66: Pushed
+fd31407a05b1: Layer already exists
+1e14701bee48: Layer already exists
+dd6300239975: Layer already exists
+2cbd282d81a0: Layer already exists
+e6a3842ebc7f: Layer already exists
+latest: digest: sha256:6921694764d6e579562075c035c7a8c0e353bfe4fc3e69ea06423c316be395a5 size: 1991
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker pull anjalimishra123/flask-app:latest
+latest: Pulling from anjalimishra123/flask-app
+Digest: sha256:6921694764d6e579562075c035c7a8c0e353bfe4fc3e69ea06423c316be395a5
+Status: Image is up to date for anjalimishra123/flask-app:latest
+docker.io/anjalimishra123/flask-app:latest
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ https://hub.docker.com/repository/docker/anjalimishra123/flask-app
+bash: https://hub.docker.com/repository/docker/anjalimishra123/flask-app: No such file or directory
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ nano flask-deployment.yaml
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ kubectl apply -f flask-deployment.yaml
+deployment.apps/flask-deployment configured
+service/flask-service unchanged
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^M
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ kubectl get pods
+kubectl get svc
+NAME                                READY   STATUS        RESTARTS      AGE
+flask-deployment-5796ffb5f9-5hpxx   1/1     Running       0             41s
+flask-deployment-5796ffb5f9-hhwzd   1/1     Running       0             17s
+flask-deployment-974c4b959-5z2xg    1/1     Terminating   3 (74m ago)   14d
+flask-deployment-974c4b959-fsb82    1/1     Terminating   3 (74m ago)   14d
+NAME            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+flask-service   NodePort    10.96.94.205   <none>        5000:32763/TCP   20d
+kubernetes      ClusterIP   10.96.0.1      <none>        443/TCP          21d
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ kubectl port-forward svc/flask-service 5000:5000
+Forwarding from 127.0.0.1:5000 -> 5000
+
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ app.py
+bash: app.py: command not found
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ echo "flask" > requirements.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker build -t anjalimishra123/flask-app:latest .
+docker push anjalimishra123/flask-app:latest
+[+] Building 0.6s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.0s
+ => => transferring dockerfile: 359B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 108B                                                        0.0s
+ => [internal] load build context                                                        0.0s
+ => => transferring context: 2.08kB                                                      0.0s
+ => [1/5] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt /app/                                             0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . /app                                                                    0.1s
+ => exporting to image                                                                   0.1s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:21c289b02aee8c0ab0acf87814e1d61a09d492de45194359efa77a34dcc  0.0s
+ => => naming to docker.io/anjalimishra123/flask-app:latest                              0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/xm4wmuw7w298xlu8br7hi2nii
+The push refers to repository [docker.io/anjalimishra123/flask-app]
+41cb4732788f: Pushed
+67a35321dd24: Layer already exists
+1797c1642d66: Layer already exists
+fd31407a05b1: Layer already exists
+1e14701bee48: Layer already exists
+dd6300239975: Layer already exists
+2cbd282d81a0: Layer already exists
+e6a3842ebc7f: Layer already exists
+latest: digest: sha256:fb35c5ec5ab8295a73f6d1fcefa3f3ef97b2bb679b06355e52177ee44478b599 size: 1991
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ kubectl rollout restart deployment flask-deployment
+deployment.apps/flask-deployment restarted
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ kubectl port-forward svc/flask-service 5000:5000
+Forwarding from 127.0.0.1:5000 -> 5000
+
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker build -t anjalimishra123/flask-app:latest .
+[+] Building 0.3s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 359B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 108B                                                        0.0s
+ => [1/5] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => [internal] load build context                                                        0.0s
+ => => transferring context: 166B                                                        0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt /app/                                             0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => CACHED [5/5] COPY . /app                                                             0.0s
+ => exporting to image                                                                   0.0s
+ => => exporting layers                                                                  0.0s
+ => => writing image sha256:21c289b02aee8c0ab0acf87814e1d61a09d492de45194359efa77a34dcc  0.0s
+ => => naming to docker.io/anjalimishra123/flask-app:latest                              0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/nprmtr8gb9mw1u9s0xgnbmtp7
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker push anjalimishra123/flask-app:latest
+The push refers to repository [docker.io/anjalimishra123/flask-app]
+41cb4732788f: Layer already exists
+67a35321dd24: Layer already exists
+1797c1642d66: Layer already exists
+fd31407a05b1: Layer already exists
+1e14701bee48: Layer already exists
+dd6300239975: Layer already exists
+2cbd282d81a0: Layer already exists
+e6a3842ebc7f: Layer already exists
+latest: digest: sha256:fb35c5ec5ab8295a73f6d1fcefa3f3ef97b2bb679b06355e52177ee44478b599 size: 1991
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ kubectl set image deployment/flask-deployment flask-app=anjalimishra123/flask-app:latest
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ kubectl rollout restart deployment flask-deployment
+deployment.apps/flask-deployment restarted
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ kubectl get pods
+NAME                                READY   STATUS        RESTARTS   AGE
+flask-deployment-7b7b79fbdb-p4jh5   1/1     Running       0          4s
+flask-deployment-7b7b79fbdb-wqh8f   1/1     Running       0          10s
+flask-deployment-7fd94ccf5d-cxtt5   1/1     Terminating   0          3m46s
+flask-deployment-7fd94ccf5d-x6s8h   1/1     Terminating   0          3m28s
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ kubectl port-forward svc/flask-service 5000:5000
+Forwarding from 127.0.0.1:5000 -> 5000
+
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker stop ecstatic_heisenberg
+docker rm ecstatic_heisenberg
+ecstatic_heisenberg
+ecstatic_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker run -d -p 5000:5000 --name flask-app anjalimishra123/flask-app:latest
+989a7aa1ea52efc48f28b1b9895e39b2c8bbf2aea5c691aceec7ec316f5fa710
+docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint flask-app (cf177212625ccb2ead0e6c776adaf7f5aee9758cd7741324bdc2e77902e73641): Bind for 0.0.0.0:5000 failed: port is already allocated
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker logs flask-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker build -t anjalimishra123/flask-app:latest .
+[+] Building 1.7s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     5.3s
+ => => transferring dockerfile: 359B                                                     5.2s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 108B                                                        0.0s
+ => [1/5] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 588B                                                        0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt /app/                                             0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . /app                                                                    0.3s
+ => exporting to image                                                                   0.4s
+ => => exporting layers                                                                  0.2s
+ => => writing image sha256:9b49a59ef51137fa9a7ffdae94973bd121a3c313456346d3c5f7a76a7b9  0.0s
+ => => naming to docker.io/anjalimishra123/flask-app:latest                              0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/fch10lpqj5s865h2nymie0rm6
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker stop flask-app
+docker rm flask-app
+flask-app
+flask-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker run -d -p 5000:5000 --name flask-app anjalimishra123/flask-app:latest
+4e755da0f6dab9024a215f2e37b846a0c6d87e92b91d992141f23309339610f5
+docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint flask-app (6a940c02bc68789a4481107322e6e3a969c21743da841f7a666e32d9d953e3e0): Bind for 0.0.0.0:5000 failed: port is already allocated
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker build -t anjalimishra123/flask-app:latest .
+[+] Building 2.0s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.3s
+ => => transferring dockerfile: 359B                                                     0.2s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 108B                                                        0.1s
+ => [1/5] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 674B                                                        0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt /app/                                             0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . /app                                                                    0.2s
+ => exporting to image                                                                   0.4s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:b1d7fbe282b29a956df696e5ae7243f2219d0ae02761c4ada77eb4f3b42  0.0s
+ => => naming to docker.io/anjalimishra123/flask-app:latest                              0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/s0711sjg5lp7cdbjh2hmkgd9r
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker stop flask-app
+docker rm flask-app
+Error response from daemon: No such container: flask-app
+Error response from daemon: No such container: flask-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker run -d -p 5000:5000 --name flask-app anjalimishra123/flask-app:latest
+7f3feb0b6c92ddf32e994d3110360cb1a778e843828c4f52d67e2e1852e4e9b4
+docker: Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint flask-app (eae37fff6c5b53cf9222f6d9556e4dca6dc08d3e4d52d13051c9b0c881e7dbd6): Bind for 0.0.0.0:5000 failed: port is already allocated
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED       STATUS       PORTS                                              NAMES
+4badcd4caef2   cc0df17154e9           "python app.py"          4 hours ago   Up 4 hours   0.0.0.0:5000->5000/tcp                             great_kilby
+26986d76d522   kindest/node:v1.33.1   "/usr/local/bin/entr…"   3 weeks ago   Up 5 hours   127.0.0.1:55557->6443/tcp                          devops-lab-control-plane
+eefdd32822f6   3051466f66a2           "sh"                     4 weeks ago   Up 5 hours                                                      peaceful_cori
+c85ae604ccdd   3051466f66a2           "sh"                     4 weeks ago   Up 5 hours                                                      unruffled_kapitsa
+960ff9668a3e   3051466f66a2           "sh"                     4 weeks ago   Up 5 hours                                                      blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts    "/usr/bin/tini -- /u…"   6 weeks ago   Up 5 hours   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app               "/docker-entrypoint.…"   6 weeks ago   Up 5 hours   0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker stop great_kilby
+docker rm great_kilby
+docker run -d -p 5000:5000 --name flask-app anjalimishra123/flask-app:latest
+Error response from daemon: No such container: great_kilby
+Error response from daemon: No such container: great_kilby
+18d2e99971adc9dbf69bdc3ecd7c6dea6d0fd87b6e40fe6d96a837471a171281
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker run -d -p 5001:5000 --name flask-app anjalimishra123/flask-app:latest
+docker: Error response from daemon: Conflict. The container name "/flask-app" is already in use by container "18d2e99971adc9dbf69bdc3ecd7c6dea6d0fd87b6e40fe6d96a837471a171281". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker ps
+CONTAINER ID   IMAGE                              COMMAND                  CREATED
+  STATUS              PORTS                                              NAMES
+18d2e99971ad   anjalimishra123/flask-app:latest   "python app.py"          About a minute ago   Up About a minute   0.0.0.0:5000->5000/tcp                             flask-app
+26986d76d522   kindest/node:v1.33.1               "/usr/local/bin/entr…"   3 weeks ago          Up 5 hours          127.0.0.1:55557->6443/tcp                          devops-lab-control-plane
+eefdd32822f6   3051466f66a2                       "sh"                     4 weeks ago          Up 5 hours                                                             peaceful_cori
+c85ae604ccdd   3051466f66a2                       "sh"                     4 weeks ago          Up 5 hours                                                             unruffled_kapitsa
+960ff9668a3e   3051466f66a2                       "sh"                     4 weeks ago          Up 5 hours                                                             blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts                "/usr/bin/tini -- /u…"   6 weeks ago          Up 5 hours          0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app                           "/docker-entrypoint.…"   6 weeks ago          Up 5 hours          0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker logs flask-app
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.3:5000
+Press CTRL+C to quit
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker build -t anjalimishra123/flask-app:latest .
+[+] Building 1.0s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 359B                                                     0.1s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 108B                                                        0.0s
+ => [1/5] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 1.46kB                                                      0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt /app/                                             0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . /app                                                                    0.1s
+ => exporting to image                                                                   0.3s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:453710cb36de058f01876a00e8b9d6595fa6f3a90663f5a3ff894591801  0.0s
+ => => naming to docker.io/anjalimishra123/flask-app:latest                              0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/oerpcm7h087hmwyqtx3tiz4e5
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker stop flask-app && docker rm flask-app
+flask-app
+flask-app
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ docker run -d -p 5000:5000 --name flask-app anjalimishra123/flask-app:latest
+9b03a13ba49f5c6a225272455436997c73777dc9ae92c1239eadce227406fb2a
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app
+$ mkdir flask-learning-hub
+cd flask-learning-hub
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ mkdir templates
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ nano templates/index.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ nano templates/notes.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ nano templates/quiz.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ nano templates/resources.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ python app.py
+Traceback (most recent call last):
+  File "C:\Users\mishr\flask-docker-app\flask-learning-hub\app.py", line 1, in <module>
+    from flask import Flask, render_template
+ModuleNotFoundError: No module named 'flask'
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ echo "flask" > requirements.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ nano Dockerfile
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker build -t flask-learning-hub:latest .
+[+] Building 3.2s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.3s
+ => => transferring dockerfile: 355B                                                     0.1s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.2s
+ => => transferring context: 2B                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => [internal] load build context                                                        0.2s
+ => => transferring context: 2.39kB                                                      0.1s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                 0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . .                                                                       0.2s
+ => exporting to image                                                                   0.8s
+ => => exporting layers                                                                  0.3s
+ => => writing image sha256:89e94ded3032bb3bfbd8cd46d6c02998b53ec94bb321a4bd04349ddad28  0.1s
+ => => naming to docker.io/library/flask-learning-hub:latest                             0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/l5ey7qsw9ll6eq7zkg1g9pnv5
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker ps
+docker stop <container_id>
+CONTAINER ID   IMAGE                              COMMAND                  CREATED          STATUS          PORTS                                              NAMES
+9b03a13ba49f   anjalimishra123/flask-app:latest   "python app.py"          38 minutes ago   Up 38 minutes   0.0.0.0:5000->5000/tcp                             flask-app
+26986d76d522   kindest/node:v1.33.1               "/usr/local/bin/entr…"   3 weeks ago      Up 6 hours      127.0.0.1:55557->6443/tcp                          devops-lab-control-plane
+eefdd32822f6   3051466f66a2                       "sh"                     4 weeks ago      Up 6 hours                                                         peaceful_cori
+c85ae604ccdd   3051466f66a2                       "sh"                     4 weeks ago      Up 6 hours                                                         unruffled_kapitsa
+960ff9668a3e   3051466f66a2                       "sh"                     4 weeks ago      Up 6 hours                                                         blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts                "/usr/bin/tini -- /u…"   6 weeks ago      Up 6 hours      0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app                           "/docker-entrypoint.…"   6 weeks ago      Up 6 hours      0.0.0.0:8081->80/tcp                               quirky_heisenberg
+bash: syntax error near unexpected token `newline'
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker stop 9b03a13ba49f
+9b03a13ba49f
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub:latest
+25161d1decd1df099ed7f3a8ae143bff308a2033c8b9c498509461c51c458624
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED         STATUS          PORTS                                              NAMES
+25161d1decd1   flask-learning-hub:latest   "python app.py"          8 seconds ago   Up 10 seconds   0.0.0.0:5000->5000/tcp                             flask-learning-hub
+26986d76d522   kindest/node:v1.33.1        "/usr/local/bin/entr…"   3 weeks ago     Up 6 hours
+      127.0.0.1:55557->6443/tcp                          devops-lab-control-plane
+eefdd32822f6   3051466f66a2                "sh"                     4 weeks ago     Up 6 hours                                                         peaceful_cori
+c85ae604ccdd   3051466f66a2                "sh"                     4 weeks ago     Up 6 hours                                                         unruffled_kapitsa
+960ff9668a3e   3051466f66a2                "sh"                     4 weeks ago     Up 6 hours                                                         blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts         "/usr/bin/tini -- /u…"   6 weeks ago     Up 6 hours      0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app                    "/docker-entrypoint.…"   6 weeks ago     Up 6 hours      0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker build -t flask-learning-hub:latest .
+[+] Building 1.0s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 355B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 748B                                                        0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                 0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . .                                                                       0.1s
+ => exporting to image                                                                   0.2s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:3708b1db89e50addc7ddc0a44c46a7840ba872525456e14be4262e297c1  0.0s
+ => => naming to docker.io/library/flask-learning-hub:latest                             0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/nnq3b4cdalw4fwlo78o39mdkm
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker stop flask-learning-hub
+docker rm flask-learning-hub
+flask-learning-hub
+flask-learning-hub
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub:latest
+11a4263e8dad2c59998a2665bf8effaebb3a67fafe52c373610392eff0b6fba9
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker build -t flask-learning-hub:latest .
+[+] Building 1.5s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 355B                                                     0.1s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 1.56kB                                                      0.1s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                 0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . .                                                                       0.3s
+ => exporting to image                                                                   0.2s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:b1f46309a64b70192f7f67380d0f78fee8e767bd230099ffe39261b4922  0.0s
+ => => naming to docker.io/library/flask-learning-hub:latest                             0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/rwlt0tk7xzmuqtpk4nae2kcdr
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker stop flask-learning-hub
+docker rm flask-learning-hub
+flask-learning-hub
+flask-learning-hub
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub:latest
+b5728b8be648c291e53538a44f1e7ca7fb1b5e8486d1da2f5d95bfa886a769eb
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ nano Dockerfile
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker build -t flask-learning-hub:latest .
+[+] Building 1.2s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 214B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                       0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.9-slim                                         0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 467B                                                        0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                 0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . .                                                                       0.2s
+ => exporting to image                                                                   0.3s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:f949e409c0554af578bacb0dd624dc0f26823550640df51821fde82d64a  0.1s
+ => => naming to docker.io/library/flask-learning-hub:latest                             0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/y6k8b1lb9odra5hgdnqiiu7t4
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker stop flask-learning-hub
+docker rm flask-learning-hub
+flask-learning-hub
+flask-learning-hub
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub:latest
+ad8243fbb180be4bcec90d4fde222988b709833246bdd3ce3aec7895bdee0138
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ pip install flask_sqlalchemy
+Collecting flask_sqlalchemy
+  Downloading flask_sqlalchemy-3.1.1-py3-none-any.whl.metadata (3.4 kB)
+Collecting flask>=2.2.5 (from flask_sqlalchemy)
+  Downloading flask-3.1.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting sqlalchemy>=2.0.16 (from flask_sqlalchemy)
+  Downloading sqlalchemy-2.0.43-cp312-cp312-win_amd64.whl.metadata (9.8 kB)
+Collecting blinker>=1.9.0 (from flask>=2.2.5->flask_sqlalchemy)
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting click>=8.1.3 (from flask>=2.2.5->flask_sqlalchemy)
+  Downloading click-8.3.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting itsdangerous>=2.2.0 (from flask>=2.2.5->flask_sqlalchemy)
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting jinja2>=3.1.2 (from flask>=2.2.5->flask_sqlalchemy)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting markupsafe>=2.1.1 (from flask>=2.2.5->flask_sqlalchemy)
+  Downloading MarkupSafe-3.0.2-cp312-cp312-win_amd64.whl.metadata (4.1 kB)
+Collecting werkzeug>=3.1.0 (from flask>=2.2.5->flask_sqlalchemy)
+  Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting colorama (from click>=8.1.3->flask>=2.2.5->flask_sqlalchemy)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting greenlet>=1 (from sqlalchemy>=2.0.16->flask_sqlalchemy)
+  Downloading greenlet-3.2.4-cp312-cp312-win_amd64.whl.metadata (4.2 kB)
+Collecting typing-extensions>=4.6.0 (from sqlalchemy>=2.0.16->flask_sqlalchemy)
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Downloading flask_sqlalchemy-3.1.1-py3-none-any.whl (25 kB)
+Downloading flask-3.1.2-py3-none-any.whl (103 kB)
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading click-8.3.0-py3-none-any.whl (107 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading MarkupSafe-3.0.2-cp312-cp312-win_amd64.whl (15 kB)
+Downloading sqlalchemy-2.0.43-cp312-cp312-win_amd64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 6.3 MB/s  0:00:00
+Downloading greenlet-3.2.4-cp312-cp312-win_amd64.whl (299 kB)
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Installing collected packages: typing-extensions, markupsafe, itsdangerous, greenlet, colorama, blinker, werkzeug, sqlalchemy, jinja2, click, flask, flask_sqlalchemy
+Successfully installed blinker-1.9.0 click-8.3.0 colorama-0.4.6 flask-3.1.2 flask_sqlalchemy-3.1.1 greenlet-3.2.4 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.2 sqlalchemy-2.0.43 typing-extensions-4.15.0 werkzeug-3.1.3
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ flask
+flask_sqlalchemy
+Usage: flask [OPTIONS] COMMAND [ARGS]...
+
+  A general utility script for Flask applications.
+
+  An application to load must be given with the '--app' option, 'FLASK_APP'
+  environment variable, or with a 'wsgi.py' or 'app.py' file in the current
+  directory.
+
+Options:
+  -e, --env-file FILE   Load environment variables from this file, taking
+                        precedence over those set by '.env' and '.flaskenv'.
+                        Variables set directly in the environment take highest
+                        precedence. python-dotenv must be installed.
+  -A, --app IMPORT      The Flask application or factory function to load, in
+                        the form 'module:name'. Module can be a dotted import
+                        or file path. Name is not required if it is 'app',
+                        'application', 'create_app', or 'make_app', and can be
+                        'name(args)' to pass arguments.
+  --debug / --no-debug  Set debug mode.
+  --version             Show the Flask version.
+  --help                Show this message and exit.
+
+Commands:
+  routes  Show the routes for the app.
+  run     Run a development server.
+  shell   Run a shell in the app context.
+bash: flask_sqlalchemy: command not found
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ flask flask_sqlalchemy
+Usage: flask [OPTIONS] COMMAND [ARGS]...
+Try 'flask --help' for help.
+
+Error: No such command 'flask_sqlalchemy'.
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ python app.py
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.80.247:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 999-637-776
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-docker-app/flask-learning-hub
