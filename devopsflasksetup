@@ -1,0 +1,1101 @@
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ cd ~/flask-learning-hub
+ls
+Dockerfile  app.py  flask-app.yaml  requirements.txt  templates/
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED       STATUS         PORTS                       NAMES
+26986d76d522   kindest/node:v1.33.1   "/usr/local/bin/entr…"   3 weeks ago   Up 3 minutes   127.0.0.1:55557->6443/tcp   devops-lab-control-plane
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ python app.py
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.81.111:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 999-637-776
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ python app.py
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.81.111:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 999-637-776
+
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ python app.py --host=127.0.0.1 --port=5000
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.81.111:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 999-637-776
+127.0.0.1 - - [23/Sep/2025 17:34:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2025 17:34:33] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [23/Sep/2025 17:34:36] "GET /notes HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2025 17:34:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2025 17:34:39] "GET /quiz HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2025 17:34:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [23/Sep/2025 17:34:43] "GET /resources HTTP/1.1" 200 -
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ cd ~/flask-learning-hub/templates
+rm *.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub/templates
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED       STATUS          PORTS                       NAMES
+26986d76d522   kindest/node:v1.33.1   "/usr/local/bin/entr…"   3 weeks ago   Up 44 minutes   127.0.0.1:55557->6443/tcp   devops-lab-control-plane
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub/templates
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub/templates
+$ cd ~/flask-learning-hub
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ rm templates/*.html
+rm: cannot remove 'templates/*.html': No such file or directory
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/index.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/notes.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/quiz.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/quiz.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/resources.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ app.py
+bash: app.py: command not found
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano Dockerfile
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano requirements.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ # Build image
+docker build -t flask-learning-hub:latest .
+
+# Run container
+docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub:latest
+[+] Building 35.8s (11/11) FINISHED                                      docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 346B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                      4.2s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c36764308  20.9s
+ => => resolve docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088  0.1s
+ => => sha256:abc799c7ee22b0d66f46c367643088a35e048bbabd81212d73c2323 10.37kB / 10.37kB  0.0s
+ => => sha256:a2dd6679f8a13a533f44782cd31584d4ca4ec7170c84e7e726dc9cc3f 1.75kB / 1.75kB  0.0s
+ => => sha256:f35c889e4f8eec7a5ccec31926201e4a63df72a87cbd59e7af1bfe268 5.58kB / 5.58kB  0.0s
+ => => sha256:ce1261c6d567efa8e3b457673eeeb474a0a8066df6bb95ca9a6a94a 29.77MB / 29.77MB  6.9s
+ => => sha256:ae44614ad59ae7d9347036fab246b3ec97ae8dca5a034c8c0057cd787 1.29MB / 1.29MB  2.1s
+ => => sha256:48b120ca37b5b627d81d3cb2e63d808078495be97454db590bba471 12.11MB / 12.11MB  5.1s
+ => => sha256:debe34bebc01f52b9f6e7fc26f1f74708de668b6088d586352067e5d88108 249B / 249B  2.7s
+ => => extracting sha256:ce1261c6d567efa8e3b457673eeeb474a0a8066df6bb95ca9a6a94a31e219d  6.3s
+ => => extracting sha256:ae44614ad59ae7d9347036fab246b3ec97ae8dca5a034c8c0057cd787bceb8  0.6s
+ => => extracting sha256:48b120ca37b5b627d81d3cb2e63d808078495be97454db590bba47194cb017  5.9s
+ => => extracting sha256:debe34bebc01f52b9f6e7fc26f1f74708de668b6088d586352067e5d881087  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 6.89kB                                                      0.1s
+ => [2/5] WORKDIR /app                                                                   0.4s
+ => [3/5] COPY requirements.txt .                                                        0.1s
+ => [4/5] RUN pip install --no-cache-dir -r requirements.txt                             8.9s
+ => [5/5] COPY . .                                                                       0.1s
+ => exporting to image                                                                   0.4s
+ => => exporting layers                                                                  0.4s
+ => => writing image sha256:1e0c50265a91621642b6cea922f979757f3db4b660323a865b43fb2a1c1  0.0s
+ => => naming to docker.io/library/flask-learning-hub:latest                             0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/pm5sj185uf0dx16i503v4bhdl
+docker: Error response from daemon: Conflict. The container name "/flask-learning-hub" is already in use by container "ad8243fbb180be4bcec90d4fde222988b709833246bdd3ce3aec7895bdee0138". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ # Stop the running container
+docker stop flask-learning-hub
+
+# Remove it
+docker rm flask-learning-hub
+flask-learning-hub
+flask-learning-hub
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub:latest
+6c8a20bd9edd648cc6937020c70d9c66fd0c32ec3c17a51adcbb3fbe1e290195
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS             PORTS                       NAMES
+6c8a20bd9edd   flask-learning-hub:latest   "python app.py"          10 seconds ago   Up 14 seconds      0.0.0.0:5000->5000/tcp      flask-learning-hub
+26986d76d522   kindest/node:v1.33.1        "/usr/local/bin/entr…"   3 weeks ago      Up About an hour   127.0.0.1:55557->6443/tcp   devops-lab-control-plane
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ # Stop the old container if needed
+docker stop flask-learning-hub
+docker rm flask-learning-hub
+
+# Run container with persistent volume and auto-restart
+docker run -d -p 5000:5000 \
+--name flask-learning-hub \
+--restart unless-stopped \
+-v $(pwd):/app \
+flask-learning-hub:latest
+flask-learning-hub
+flask-learning-hub
+8750070ee9eaa60588e522c1bc8e5154ff0febef6dff336d4d3b6af23bd182ac
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED              STATUS              PORTS                       NAMES
+8750070ee9ea   flask-learning-hub:latest   "python app.py"          About a minute ago   Up About a minute   0.0.0.0:5000->5000/tcp      flask-learning-hub
+26986d76d522   kindest/node:v1.33.1        "/usr/local/bin/entr…"   3 weeks ago          Up About an hour    127.0.0.1:55557->6443/tcp   devops-lab-control-plane
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ mkdir -p static/css static/js
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/index.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/index.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/base.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/index.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/notes.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/quiz.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/resources.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker stop flask-learning-hub
+docker rm flask-learning-hub
+docker build -t flask-learning-hub:latest .
+docker run -d -p 5000:5000 --name flask-learning-hub -v $(pwd):/app flask-learning-hub:latest
+flask-learning-hub
+flask-learning-hub
+[+] Building 4.5s (11/11) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.0s
+ => => transferring dockerfile: 346B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                      3.0s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 5.74kB                                                      0.1s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                 0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . .                                                                       0.2s
+ => exporting to image                                                                   0.2s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:87be0ea63baa4bf220955d7c43cdb558ca0d93240681ec19916a26eec14  0.0s
+ => => naming to docker.io/library/flask-learning-hub:latest                             0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/u60nlfo15i88lr9pwn2yf2si1
+0d06a01895d7798493d3aa8ed37d4e52dca9213c6cc7636c960e844cb5ba885d
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker ps -a
+CONTAINER ID   IMAGE                              COMMAND                  CREATED          STATUS                      PORTS                                              NAMES
+0d06a01895d7   flask-learning-hub:latest          "python app.py"          34 seconds ago   Up 37 seconds               0.0.0.0:5000->5000/tcp                             flask-learning-hub
+9b03a13ba49f   anjalimishra123/flask-app:latest   "python app.py"          2 days ago       Exited (137) 2 days ago                                                        flask-app
+26986d76d522   kindest/node:v1.33.1               "/usr/local/bin/entr…"   3 weeks ago      Up 2 hours                  127.0.0.1:55557->6443/tcp                          devops-lab-control-plane
+eefdd32822f6   3051466f66a2                       "sh"                     5 weeks ago      Exited (255) 26 hours ago                                                      peaceful_cori
+c85ae604ccdd   3051466f66a2                       "sh"                     5 weeks ago      Exited (255) 26 hours ago                                                      unruffled_kapitsa
+960ff9668a3e   3051466f66a2                       "sh"                     5 weeks ago      Exited (255) 26 hours ago                                                      blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts                "/usr/bin/tini -- /u…"   7 weeks ago      Exited (255) 26 hours ago   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app                           "/docker-entrypoint.…"   7 weeks ago      Exited (255) 26 hours ago   0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker logs flask-learning-hub
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 926-873-841
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker stop flask-learning-hub
+docker rm flask-learning-hub
+docker build -t flask-learning-hub:latest .
+docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub:latest
+flask-learning-hub
+flask-learning-hub
+[+] Building 2.4s (10/10) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 346B                                                     0.1s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                      1.5s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088  0.0s
+ => [internal] load build context                                                        0.0s
+ => => transferring context: 904B                                                        0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                 0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . .                                                                       0.1s
+ => exporting to image                                                                   0.2s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:81ace754c0983fae41fb48146610e61512bcf605bfa5ad58f68f5910402  0.0s
+ => => naming to docker.io/library/flask-learning-hub:latest                             0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/nlkdks886kxe30bkpilpvshhm
+9c86577e44e784058cae04212372065bd1b58c4afcd4ee01982109d51e46804b
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/notes.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/quiz.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/resources.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker stop flask-learning-hub
+docker rm flask-learning-hub
+docker build -t flask-learning-hub:latest .
+docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub:latest
+flask-learning-hub
+flask-learning-hub
+[+] Building 3.4s (11/11) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 346B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                      2.4s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 4.54kB                                                      0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                 0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . .                                                                       0.1s
+ => exporting to image                                                                   0.2s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:301f5c32f899e6720757ee7bc8b2da3b360524fdc52548a1fbee0a88338  0.0s
+ => => naming to docker.io/library/flask-learning-hub:latest                             0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/z3k5mq32la7wnqfyt14h2yxph
+80bafb9c048bf2c5d092528158bdad9d9f2ad98996321cc78ca94dc24d3851d2
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/base.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/index.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/notes.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/notes_detail.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/quiz.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/quiz_detail.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano static/css/style.css
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano static/js/main.js
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano requirements.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano Dockerfile
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^M
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ cd ~/flask-learning-hub
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ mkdir -p templates
+mkdir -p static/css
+mkdir -p static/js
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ls -R
+.:
+Dockerfile  app.py  flask-app.yaml  requirements.txt  static/  templates/
+
+./static:
+css/  js/
+
+./static/css:
+style.css
+
+./static/js:
+main.js
+
+./templates:
+base.html   notes.html         quiz.html         resources.html
+index.html  notes_detail.html  quiz_detail.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ pip install -r requirements.txt
+Collecting Flask==2.3.2 (from -r requirements.txt (line 1))
+  Downloading Flask-2.3.2-py3-none-any.whl.metadata (3.7 kB)
+Requirement already satisfied: Werkzeug>=2.3.3 in c:\users\mishr\appdata\local\programs\python\python312\lib\site-packages (from Flask==2.3.2->-r requirements.txt (line 1)) (3.1.3)
+Requirement already satisfied: Jinja2>=3.1.2 in c:\users\mishr\appdata\local\programs\python\python312\lib\site-packages (from Flask==2.3.2->-r requirements.txt (line 1)) (3.1.6)
+Requirement already satisfied: itsdangerous>=2.1.2 in c:\users\mishr\appdata\local\programs\python\python312\lib\site-packages (from Flask==2.3.2->-r requirements.txt (line 1)) (2.2.0)
+Requirement already satisfied: click>=8.1.3 in c:\users\mishr\appdata\local\programs\python\python312\lib\site-packages (from Flask==2.3.2->-r requirements.txt (line 1)) (8.3.0)
+Requirement already satisfied: blinker>=1.6.2 in c:\users\mishr\appdata\local\programs\python\python312\lib\site-packages (from Flask==2.3.2->-r requirements.txt (line 1)) (1.9.0)
+Requirement already satisfied: colorama in c:\users\mishr\appdata\local\programs\python\python312\lib\site-packages (from click>=8.1.3->Flask==2.3.2->-r requirements.txt (line 1)) (0.4.6)
+Requirement already satisfied: MarkupSafe>=2.0 in c:\users\mishr\appdata\local\programs\python\python312\lib\site-packages (from Jinja2>=3.1.2->Flask==2.3.2->-r requirements.txt (line 1)) (3.0.2)
+Downloading Flask-2.3.2-py3-none-any.whl (96 kB)
+Installing collected packages: Flask
+  Attempting uninstall: Flask
+    Found existing installation: Flask 3.1.2
+    Uninstalling Flask-3.1.2:
+      Successfully uninstalled Flask-3.1.2
+Successfully installed Flask-2.3.2
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ python app.py
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.81.81:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 999-637-776
+127.0.0.1 - - [24/Sep/2025 10:41:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:41:45] "GET /static/css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:41:45] "GET /static/js/main.js HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:41:46] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [24/Sep/2025 10:41:51] "GET /notes HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:41:51] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:41:51] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:41:54] "GET /notes HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:41:54] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:41:54] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:42:00] "GET /quiz HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:42:00] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:42:00] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:42:04] "GET /resources HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:42:05] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:42:05] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:42:45] "GET /notes HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:42:46] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:42:46] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:42:49] "GET /notes/docker HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:42:49] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:42:49] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:42:53] "GET /quiz/docker HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\flask-learning-hub\app.py", line 92, in quiz_detail
+    return render_template("quiz_detail.html", topic_key=topic, quiz=quiz)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\mishr\flask-learning-hub\templates\quiz_detail.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\mishr\flask-learning-hub\templates\base.html", line 33, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\mishr\flask-learning-hub\templates\quiz_detail.html", line 9, in block 'content'
+    {% for i, q in enumerate(quiz.questions) %}
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'enumerate' is undefined
+127.0.0.1 - - [24/Sep/2025 10:42:54] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:42:54] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:42:54] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=console.png&s=rWvrDUSM7vtCaL120ZfJ HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:42:54] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:43:48] "GET /quiz/docker HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\flask-learning-hub\app.py", line 92, in quiz_detail
+    return render_template("quiz_detail.html", topic_key=topic, quiz=quiz)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\mishr\flask-learning-hub\templates\quiz_detail.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\mishr\flask-learning-hub\templates\base.html", line 33, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\mishr\flask-learning-hub\templates\quiz_detail.html", line 9, in block 'content'
+    {% for i, q in enumerate(quiz.questions) %}
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'enumerate' is undefined
+127.0.0.1 - - [24/Sep/2025 10:43:48] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:43:48] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:43:48] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=console.png&s=rWvrDUSM7vtCaL120ZfJ HTTP/1.1" 304 -
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/quiz_detail.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^M
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ python app.py
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.26.81.81:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 999-637-776
+127.0.0.1 - - [24/Sep/2025 10:51:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:51:00] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:51:00] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:51:08] "GET /notes HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:51:09] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:51:09] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:51:12] "GET /notes/docker HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:51:12] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:51:12] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:51:18] "GET /quiz HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:51:18] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:51:18] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Sep/2025 10:51:20] "GET /quiz/kubernetes HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\flask-learning-hub\app.py", line 92, in quiz_detail
+    return render_template("quiz_detail.html", topic_key=topic, quiz=quiz)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\mishr\flask-learning-hub\templates\quiz_detail.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\mishr\flask-learning-hub\templates\base.html", line 33, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\mishr\flask-learning-hub\templates\quiz_detail.html", line 7, in block 'content'
+    <form method="post" action="{{ url_for('submit_quiz', quiz_name=quiz_name) }}">
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'submit_quiz' with values ['quiz_name']. Did you mean 'api_quiz' instead?
+127.0.0.1 - - [24/Sep/2025 10:51:20] "GET /quiz/kubernetes?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:51:20] "GET /quiz/kubernetes?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:51:20] "GET /quiz/kubernetes?__debugger__=yes&cmd=resource&f=console.png&s=x5PNORAOTVRnnydbBeww HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:51:21] "GET /quiz/kubernetes?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ post" action="{{ url_for('submit_quiz', quiz_name=quiz_name) }}">
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\mishr\AppData\Local\Programs\Python\Python312\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'submit_quiz' with values ['quiz_name']. Did you mean 'api_quiz' instead?
+127.0.0.1 - - [24/Sep/2025 10:51:20] "GET /quiz/kubernetes?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:51:20] "GET /quiz/kubernetes?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:51:20] "GET /quiz/kubernetes?__debugger__=yes&cmd=resource&f=console.png&s=x5PNORAOTVRnnydbBeww HTTP/1.1" 200 -
+127.0.0.1 - - [24/Sep/2025 10:51:21] "GET /quiz/kubernetes?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+
+^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker build -t flask-learning-hub .
+docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub
+[+] Building 4.9s (11/11) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 226B                                                     0.1s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                      2.8s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088  0.0s
+ => [internal] load build context                                                        0.2s
+ => => transferring context: 11.15kB                                                     0.1s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                 0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . .                                                                       0.3s
+ => exporting to image                                                                   0.4s
+ => => exporting layers                                                                  0.2s
+ => => writing image sha256:37b27dc15d767c6d32cec87722aa4df71651f8e047a8cd4ef249097ae50  0.0s
+ => => naming to docker.io/library/flask-learning-hub                                    0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/w4gedm09g4yco3d3gb2ue0g1y
+docker: Error response from daemon: Conflict. The container name "/flask-learning-hub" is already in use by container "80bafb9c048bf2c5d092528158bdad9d9f2ad98996321cc78ca94dc24d3851d2". You have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker ps -a   # list all containers (running + stopped)
+docker stop flask-learning-hub   # stop the old container
+docker rm flask-learning-hub     # remove the old container
+CONTAINER ID   IMAGE                              COMMAND                  CREATED        STATUS                      PORTS                                              NAMES
+80bafb9c048b   301f5c32f899                       "python app.py"          16 hours ago   Up 16 hours                 0.0.0.0:5000->5000/tcp                             flask-learning-hub
+9b03a13ba49f   anjalimishra123/flask-app:latest   "python app.py"          2 days ago     Exited (137) 2 days ago                                                        flask-app
+26986d76d522   kindest/node:v1.33.1               "/usr/local/bin/entr…"   3 weeks ago    Up 18 hours                 127.0.0.1:55557->6443/tcp                          devops-lab-control-plane
+eefdd32822f6   3051466f66a2                       "sh"                     5 weeks ago    Exited (255) 42 hours ago                                                      peaceful_cori
+c85ae604ccdd   3051466f66a2                       "sh"                     5 weeks ago    Exited (255) 42 hours ago                                                      unruffled_kapitsa
+960ff9668a3e   3051466f66a2                       "sh"                     5 weeks ago    Exited (255) 42 hours ago                                                      blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts                "/usr/bin/tini -- /u…"   7 weeks ago    Exited (255) 42 hours ago   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app                           "/docker-entrypoint.…"   7 weeks ago    Exited (255) 42 hours ago   0.0.0.0:8081->80/tcp                               quirky_heisenberg
+flask-learning-hub
+flask-learning-hub
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker run -d -p 5000:5000 --name flask-learning-hub-v2 flask-learning-hub
+41dde59e93ab7a7be70381f0299d2c36650e80e99cf7e1640ad09138793227c2
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS          PORTS                       NAMES
+41dde59e93ab   flask-learning-hub     "python app.py"          37 seconds ago   Up 43 seconds   0.0.0.0:5000->5000/tcp      flask-learning-hub-v2
+26986d76d522   kindest/node:v1.33.1   "/usr/local/bin/entr…"   3 weeks ago      Up 18 hours     127.0.0.1:55557->6443/tcp   devops-lab-control-plane
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker logs -f flask-learning-hub-v2
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.2:5000
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 333-273-523
+172.17.0.1 - - [24/Sep/2025 05:24:46] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [24/Sep/2025 05:24:47] "GET /static/css/style.css HTTP/1.1" 200 -
+172.17.0.1 - - [24/Sep/2025 05:24:47] "GET /static/js/main.js HTTP/1.1" 200 -
+172.17.0.1 - - [24/Sep/2025 05:24:57] "GET /quiz/docker HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/app/app.py", line 92, in quiz_detail
+    return render_template("quiz_detail.html", topic_key=topic, quiz=quiz)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/usr/local/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/app/templates/quiz_detail.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/app/templates/base.html", line 33, in top-level template code
+    {% block content %}{% endblock %}
+  File "/app/templates/quiz_detail.html", line 7, in block 'content'
+    <form method="post" action="{{ url_for('submit_quiz', quiz_name=quiz_name) }}">
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1697, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/flask/app.py", line 1686, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'submit_quiz' with values ['quiz_name']. Did you mean 'api_quiz' instead?
+172.17.0.1 - - [24/Sep/2025 05:24:57] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+172.17.0.1 - - [24/Sep/2025 05:24:57] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+172.17.0.1 - - [24/Sep/2025 05:24:58] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=console.png&s=LUWzGPMYuA0G6lDgyRXJ HTTP/1.1" 200 -
+172.17.0.1 - - [24/Sep/2025 05:24:58] "GET /quiz/docker?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+172.17.0.1 - - [24/Sep/2025 05:25:18] "GET /quiz HTTP/1.1" 200 -
+172.17.0.1 - - [24/Sep/2025 05:25:18] "GET /static/css/style.css HTTP/1.1" 304 -
+172.17.0.1 - - [24/Sep/2025 05:25:18] "GET /static/js/main.js HTTP/1.1" 304 -
+
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker build -t flask-learning-hub .
+[+] Building 3.6s (11/11) FINISHED                                       docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 226B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:3.12-slim                      1.9s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 5.55kB                                                      0.0s
+ => CACHED [2/5] WORKDIR /app                                                            0.0s
+ => CACHED [3/5] COPY requirements.txt .                                                 0.0s
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                      0.0s
+ => [5/5] COPY . .                                                                       0.1s
+ => exporting to image                                                                   0.2s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:d0a71ca69ee4c47f08b2447311a373fd3a914d329e84c0e742e767003c3  0.0s
+ => => naming to docker.io/library/flask-learning-hub                                    0.0s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/wxwy4jp1pqqvq8vb8147cabvv
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker stop flask-learning-hub-v2
+docker rm flask-learning-hub-v2
+flask-learning-hub-v2
+flask-learning-hub-v2
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker run -d -p 5000:5000 --name flask-learning-hub-v3 flask-learning-hub
+bea2b3be599b9b4a03c5a55fd2dd5f2a9fec769c7ac5c6f8c74a36a757b56619
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker build -t flask-learning-hub .
+docker stop flask-learning-hub-v4   # replace with your container name if different
+docker rm flask-learning-hub-v4
+docker run -d -p 5000:5000 --name flask-learning-hub-v5 flask-learning-hub
+[+] Building 4.1s (11/11) FINISHED                                         docker:desktop-linu
+ => [internal] load build definition from Dockerfile                                       0.1
+ => => transferring dockerfile: 226B                                                       0.1
+ => [internal] load metadata for docker.io/library/python:3.12-slim                        2.5
+ => [auth] library/python:pull token for registry-1.docker.io                              0.0
+ => [internal] load .dockerignore                                                          0.1
+ => => transferring context: 2B                                                            0.0
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088a3  0.0
+ => [internal] load build context                                                          0.1
+ => => transferring context: 3.03kB                                                        0.1
+ => CACHED [2/5] WORKDIR /app                                                              0.0
+ => CACHED [3/5] COPY requirements.txt .                                                   0.0
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                        0.0
+ => [5/5] COPY . .                                                                         0.2
+ => exporting to image                                                                     0.3
+ => => exporting layers                                                                    0.1
+ => => writing image sha256:b8a97a13ce947453c943144c59124891f428db17e88f2e6139eaafa5a9653  0.0
+ => => naming to docker.io/library/flask-learning-hub                                      0.0
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/is3ixjre66lt10oer55crm2
+Error response from daemon: No such container: flask-learning-hub-v4
+Error response from daemon: No such container: flask-learning-hub-v4
+5ec4fd6e28bd73155d716d3d28cb3f123840a21af94961968bcc28be23f41fe5
+docker: Error response from daemon: failed to set up container networking: driver failed progrming external connectivity on endpoint flask-learning-hub-v5 (0ff735b0f5e7da7aacd543b502154d83104f07577757079eb44d155ac253dd): Bind for 0.0.0.0:5000 failed: port is already allocated
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS
+PORTS                       NAMES
+bea2b3be599b   d0a71ca69ee4           "python app.py"          14 minutes ago   Up 14 minutes 0.0.0.0:5000->5000/tcp      flask-learning-hub-v3
+26986d76d522   kindest/node:v1.33.1   "/usr/local/bin/entr…"   3 weeks ago      Up 18 hours   127.0.0.1:55557->6443/tcp   devops-lab-control-plane
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker stop flask-learning-hub-v3
+docker rm flask-learning-hub-v3
+docker run -d -p 5000:5000 --name flask-learning-hub-v4 flask-learning-hub
+flask-learning-hub-v3
+flask-learning-hub-v3
+d504f2453d3e6e9d2141af2d5d59fc765307b74bc13908f0227d7cdb1284d363
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker stop flask-learning-hub-v3
+docker rm flask-learning-hub-v3
+docker build -t flask-learning-hub .
+docker run -d -p 5000:5000 --name flask-learning-hub-v4 flask-learning-hub
+Error response from daemon: No such container: flask-learning-hub-v3
+Error response from daemon: No such container: flask-learning-hub-v3
+[+] Building 3.4s (11/11) FINISHED                                         docker:desktop-linu
+ => [internal] load build definition from Dockerfile                                       0.1
+ => => transferring dockerfile: 226B                                                       0.0
+ => [internal] load metadata for docker.io/library/python:3.12-slim                        2.1
+ => [auth] library/python:pull token for registry-1.docker.io                              0.0
+ => [internal] load .dockerignore                                                          0.0
+ => => transferring context: 2B                                                            0.0
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088a3  0.0
+ => [internal] load build context                                                          0.1
+ => => transferring context: 3.52kB                                                        0.0
+ => CACHED [2/5] WORKDIR /app                                                              0.0
+ => CACHED [3/5] COPY requirements.txt .                                                   0.0
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                        0.0
+ => [5/5] COPY . .                                                                         0.3
+ => exporting to image                                                                     0.2
+ => => exporting layers                                                                    0.1
+ => => writing image sha256:fb187ab2c7ad0dfa96ffc8b88e1c3fd646e735cd668cb4b325009f2f684a4  0.0
+ => => naming to docker.io/library/flask-learning-hub                                      0.0
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/slpzuqc3cglajjesvxxgh0f
+docker: Error response from daemon: Conflict. The container name "/flask-learning-hub-v4" is aeady in use by container "d504f2453d3e6e9d2141af2d5d59fc765307b74bc13908f0227d7cdb1284d363". Y have to remove (or rename) that container to be able to reuse that name.
+
+Run 'docker run --help' for more information
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker ps -a
+CONTAINER ID   IMAGE                              COMMAND                  CREATED         STAS                      PORTS                                              NAMES
+d504f2453d3e   b8a97a13ce94                       "python app.py"          5 minutes ago   Up minutes                0.0.0.0:5000->5000/tcp                             flask-learning-hub-v
+5ec4fd6e28bd   b8a97a13ce94                       "python app.py"          6 minutes ago   Creed                                                                        flask-learning-hub-v
+9b03a13ba49f   anjalimishra123/flask-app:latest   "python app.py"          2 days ago      Exid (137) 2 days ago                                                        flask-app
+26986d76d522   kindest/node:v1.33.1               "/usr/local/bin/entr…"   3 weeks ago     Up  hours                 127.0.0.1:55557->6443/tcp                          devops-lab-control-pne
+eefdd32822f6   3051466f66a2                       "sh"                     5 weeks ago     Exid (255) 43 hours ago                                                      peaceful_cori
+c85ae604ccdd   3051466f66a2                       "sh"                     5 weeks ago     Exid (255) 43 hours ago                                                      unruffled_kapitsa
+960ff9668a3e   3051466f66a2                       "sh"                     5 weeks ago     Exid (255) 43 hours ago                                                      blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts                "/usr/bin/tini -- /u…"   7 weeks ago     Exid (255) 43 hours ago   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app                           "/docker-entrypoint.…"   7 weeks ago     Exid (255) 43 hours ago   0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker stop flask-learning-hub-v4
+docker rm flask-learning-hub-v4
+flask-learning-hub-v4
+flask-learning-hub-v4
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker rm -f flask-learning-hub-v1 flask-learning-hub-v2 flask-learning-hub-v3
+Error response from daemon: No such container: flask-learning-hub-v1
+Error response from daemon: No such container: flask-learning-hub-v2
+Error response from daemon: No such container: flask-learning-hub-v3
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker ps -a
+CONTAINER ID   IMAGE                              COMMAND                  CREATED         STAS                      PORTS                                              NAMES
+5ec4fd6e28bd   b8a97a13ce94                       "python app.py"          7 minutes ago   Creed                                                                        flask-learning-hub-v
+9b03a13ba49f   anjalimishra123/flask-app:latest   "python app.py"          2 days ago      Exid (137) 2 days ago                                                        flask-app
+26986d76d522   kindest/node:v1.33.1               "/usr/local/bin/entr…"   3 weeks ago     Up  hours                 127.0.0.1:55557->6443/tcp                          devops-lab-control-pne
+eefdd32822f6   3051466f66a2                       "sh"                     5 weeks ago     Exid (255) 43 hours ago                                                      peaceful_cori
+c85ae604ccdd   3051466f66a2                       "sh"                     5 weeks ago     Exid (255) 43 hours ago                                                      unruffled_kapitsa
+960ff9668a3e   3051466f66a2                       "sh"                     5 weeks ago     Exid (255) 43 hours ago                                                      blissful_sanderson
+01312f7694b2   jenkins/jenkins:lts                "/usr/bin/tini -- /u…"   7 weeks ago     Exid (255) 43 hours ago   0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins-blue
+b804a32df4ae   labx-app                           "/docker-entrypoint.…"   7 weeks ago     Exid (255) 43 hours ago   0.0.0.0:8081->80/tcp                               quirky_heisenberg
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ # Remove the blocking container
+docker rm -f flask-learning-hub-v5
+
+# Rebuild the image just to be safe
+docker build -t flask-learning-hub .
+
+# Run a fresh container
+docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub
+flask-learning-hub-v5
+[+] Building 1.7s (10/10) FINISHED                                         docker:desktop-linu
+ => [internal] load build definition from Dockerfile                                       0.1
+ => => transferring dockerfile: 226B                                                       0.0
+ => [internal] load metadata for docker.io/library/python:3.12-slim                        1.1
+ => [internal] load .dockerignore                                                          0.0
+ => => transferring context: 2B                                                            0.0
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088a3  0.0
+ => [internal] load build context                                                          0.0
+ => => transferring context: 613B                                                          0.0
+ => CACHED [2/5] WORKDIR /app                                                              0.0
+ => CACHED [3/5] COPY requirements.txt .                                                   0.0
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                        0.0
+ => CACHED [5/5] COPY . .                                                                  0.0
+ => exporting to image                                                                     0.1
+ => => exporting layers                                                                    0.0
+ => => writing image sha256:fb187ab2c7ad0dfa96ffc8b88e1c3fd646e735cd668cb4b325009f2f684a4  0.0
+ => => naming to docker.io/library/flask-learning-hub                                      0.0
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/imh2u0uxohunrzt13lb93b6
+06aea03145da0876ab2785172fb59fa48ce71b28c24e60b9174727426338ba92
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker ps
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS
+PORTS                       NAMES
+06aea03145da   flask-learning-hub     "python app.py"          11 seconds ago   Up 13 seconds 0.0.0.0:5000->5000/tcp      flask-learning-hub
+26986d76d522   kindest/node:v1.33.1   "/usr/local/bin/entr…"   3 weeks ago      Up 18 hours   127.0.0.1:55557->6443/tcp   devops-lab-control-plane
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/base.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano templates/quiz_detail.html
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ nano app.py
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ docker stop flask-learning-hub
+docker rm flask-learning-hub
+docker build -t flask-learning-hub .
+docker run -d -p 5000:5000 --name flask-learning-hub flask-learning-hub
+flask-learning-hub
+flask-learning-hub
+[+] Building 4.1s (11/11) FINISHED                                         docker:desktop-linu
+ => [internal] load build definition from Dockerfile                                       0.1
+ => => transferring dockerfile: 226B                                                       0.1
+ => [internal] load metadata for docker.io/library/python:3.12-slim                        2.4
+ => [auth] library/python:pull token for registry-1.docker.io                              0.0
+ => [internal] load .dockerignore                                                          0.1
+ => => transferring context: 2B                                                            0.0
+ => [1/5] FROM docker.io/library/python:3.12-slim@sha256:abc799c7ee22b0d66f46c367643088a3  0.0
+ => [internal] load build context                                                          0.1
+ => => transferring context: 3.52kB                                                        0.1
+ => CACHED [2/5] WORKDIR /app                                                              0.0
+ => CACHED [3/5] COPY requirements.txt .                                                   0.0
+ => CACHED [4/5] RUN pip install --no-cache-dir -r requirements.txt                        0.0
+ => [5/5] COPY . .                                                                         0.2
+ => exporting to image                                                                     0.3
+ => => exporting layers                                                                    0.1
+ => => writing image sha256:e9646bfc860548fc9e85afa847673f29b12aed0484a7b194cc13531ce32db  0.0
+ => => naming to docker.io/library/flask-learning-hub                                      0.0
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/171kr1pcldh2rzn3j0w0oya
+a4ac00654a23bbf51686a54d78c655cd308515c3ba82c5d8088159306f7b7ac3
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/flask-learning-hub
+$
