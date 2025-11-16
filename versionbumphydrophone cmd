@@ -1,0 +1,142 @@
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ cd hydrophone
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (add-cicd-examples)
+$ git remote add upstream https://github.com/kubernetes-sigs/hydrophone.git
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (add-cicd-examples)
+$ git fetch upstream
+remote: Enumerating objects: 82, done.
+remote: Counting objects: 100% (37/37), done.
+remote: Compressing objects: 100% (19/19), done.
+remote: Total 82 (delta 19), reused 29 (delta 18), pack-reused 45 (from 2)
+Unpacking objects: 100% (82/82), 43.94 KiB | 135.00 KiB/s, done.
+From https://github.com/kubernetes-sigs/hydrophone
+ * [new branch]      add-an-explicit-cleanup-from-command-line -> upstream/add-an-explicit-cleanup-from-command-line
+ * [new branch]      add-another-periodic-test-same-as-pull-kubernetes-e2e-kind -> upstream/add-another-periodic-test-same-as-pull-kubernetes-e2e-kind
+ * [new branch]      add-farazkhawaja       -> upstream/add-farazkhawaja
+ * [new branch]      add-github-actions-to-update-k8s-versions -> upstream/add-github-actions-to-update-k8s-versions
+ * [new branch]      add-image-option       -> upstream/add-image-option
+ * [new branch]      add-k8s-version-number-for-kind-cluster -> upstream/add-k8s-version-number-for-kind-cluster
+ * [new branch]      add-license-headers    -> upstream/add-license-headers
+ * [new branch]      add-more-makefile-targets -> upstream/add-more-makefile-targets
+ * [new branch]      add-support-for-skipping-tests -> upstream/add-support-for-skipping-tests
+ * [new branch]      add-support-to-list-all-images-used-for-conformance-testing -> upstream/add-support-to-list-all-images-used-for-conformance-testing
+ * [new branch]      adopters               -> upstream/adopters
+ * [new branch]      allow-setting-number-of-threads-and-verbosity-from-command-line -> upstream/allow-setting-number-of-threads-and-verbosity-from-command-line
+ * [new branch]      allow-specifying-busybox-image-from-another-registry -> upstream/allow-specifying-busybox-image-from-another-registry
+ * [new branch]      better-check-for-conformance-and-focus-on-command-line -> upstream/better-check-for-conformance-and-focus-on-command-line
+ * [new branch]      better-example-for-a-single-test -> upstream/better-example-for-a-single-test
+ * [new branch]      better-focus-string-for-conformance -> upstream/better-focus-string-for-conformance
+ * [new branch]      better-regexp-for-replacing-version-for-conformance-images -> upstream/better-regexp-for-replacing-version-for-conformance-images
+ * [new branch]      cleanup-help-text-and-update-README -> upstream/cleanup-help-text-and-update-README
+ * [new branch]      dependencies/update    -> upstream/dependencies/update
+ * [new branch]      download-files-using-a-second-container-with-empty-dir -> upstream/download-files-using-a-second-container-with-empty-dir
+ * [new branch]      enable-using-go-runner -> upstream/enable-using-go-runner
+ * [new branch]      first-class-support-for-conformance-option-on-command-line -> upstream/first-class-support-for-conformance-option-on-command-line
+ * [new branch]      fix-conformance-version -> upstream/fix-conformance-version
+ * [new branch]      flesh-out-the-README-a-bit-more -> upstream/flesh-out-the-README-a-bit-more
+ * [new branch]      forgot-replacement-fields -> upstream/forgot-replacement-fields
+ * [new branch]      go1.22.0               -> upstream/go1.22.0
+ * [new branch]      just-print-log-to-stdout -> upstream/just-print-log-to-stdout
+ * [new branch]      log-test-status        -> upstream/log-test-status
+ * [new branch]      main                   -> upstream/main
+ * [new branch]      owners-update          -> upstream/owners-update
+ * [new branch]      print-some-useful-information -> upstream/print-some-useful-information
+ * [new branch]      run-etcd-using-tmpfs-storage -> upstream/run-etcd-using-tmpfs-storage
+ * [new branch]      run-github-action-on-demand -> upstream/run-github-action-on-demand
+ * [new branch]      run-periodic-job-less-frequently -> upstream/run-periodic-job-less-frequently
+ * [new branch]      script-to-update-k8s-version -> upstream/script-to-update-k8s-version
+ * [new branch]      settings-ignore        -> upstream/settings-ignore
+ * [new branch]      support-for-alternate-location-for-downladed-files -> upstream/support-for-alternate-location-for-downladed-files
+ * [new branch]      support-for-alternate-registries-for-test-images -> upstream/support-for-alternate-registries-for-test-images
+ * [new branch]      time-only-looks-better-in-the-logs -> upstream/time-only-looks-better-in-the-logs
+ * [new branch]      update-dependencies-to-k8s-1.29 -> upstream/update-dependencies-to-k8s-1.29
+ * [new branch]      update-readme          -> upstream/update-readme
+ * [new branch]      update-readme-with-skip-option -> upstream/update-readme-with-skip-option
+ * [new branch]      update-to-new-name-hydrophone -> upstream/update-to-new-name-hydrophone
+ * [new branch]      update-to-newer-conformance-image-and-avoid-hardcoding-conformance-test-suite -> upstream/update-to-newer-conformance-image-and-avoid-hardcoding-conformance-test-suite
+ * [new branch]      update-to-newer-golang -> upstream/update-to-newer-golang
+ * [new branch]      upload-e2e-log-and-junit-xml-in-all-gh-actions -> upstream/upload-e2e-log-and-junit-xml-in-all-gh-actions
+ * [new branch]      use-conformance-test-image-from-test-v1.29.0 -> upstream/use-conformance-test-image-from-test-v1.29.0
+ * [new branch]      use-constants-for-the-container-names -> upstream/use-constants-for-the-container-names
+ * [new branch]      use-slog-package-with-colorized-logs -> upstream/use-slog-package-with-colorized-logs
+ * [new tag]         v0.1.0                 -> v0.1.0
+ * [new tag]         v0.2.0                 -> v0.2.0
+ * [new tag]         v0.3.0                 -> v0.3.0
+ * [new tag]         v0.4.0                 -> v0.4.0
+ * [new tag]         v0.4.1                 -> v0.4.1
+ * [new tag]         v0.5.0                 -> v0.5.0
+ * [new tag]         v0.6.0                 -> v0.6.0
+ * [new tag]         v0.7.0                 -> v0.7.0
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (add-cicd-examples)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (main)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (main)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (main)
+$ git pull upstream main
+From https://github.com/kubernetes-sigs/hydrophone
+ * branch            main       -> FETCH_HEAD
+Updating 537b725..787b0cf
+Fast-forward
+ .github/PULL_REQUEST_TEMPLATE.md  |  7 +++++++
+ docs/README.md                    | 28 ++++++++++++++++++++++++++--
+ docs/quickstart.md                |  2 +-
+ docs/understanding-e2e-results.md |  7 ++-----
+ go.mod                            |  2 +-
+ go.sum                            |  4 ++--
+ 6 files changed, 39 insertions(+), 11 deletions(-)
+ create mode 100644 .github/PULL_REQUEST_TEMPLATE.md
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (main)
+$ git checkout -b bump-kind-k8s-versions
+Switched to a new branch 'bump-kind-k8s-versions'
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (bump-kind-k8s-versions)
+$ hack/run_e2e.sh
+bash: hack/run_e2e.sh: No such file or directory
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (bump-kind-k8s-versions)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (bump-kind-k8s-versions)
+$ ls hack
+boilerplate/  kube-env.sh*  verify-all.sh*          verify-golint.sh*
+bump-k8s.sh*  run-e2e.sh*   verify-boilerplate.sh*  verify-gomod.sh*
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (bump-kind-k8s-versions)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (bump-kind-k8s-versions)
+$ code hack/run-e2e.sh
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (bump-kind-k8s-versions)
+$ git add hack/run-e2e.sh
+git commit -m "Bump Kubernetes to v1.34.0 and kind to v0.23.0 in run-e2e.sh"
+[bump-kind-k8s-versions e017149] Bump Kubernetes to v1.34.0 and kind to v0.23.0 in run-e2e.sh
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/hydrophone (bump-kind-k8s-versions)
+$ git push origin bump-kind-k8s-versions
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 404 bytes | 134.00 KiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+remote:
+remote: Create a pull request for 'bump-kind-k8s-versions' on GitHub by visiting:
+remote:      https://github.com/AnjaliMishra1st/hydrophone/pull/new/bump-kind-k8s-versions
+remote:
+To https://github.com/AnjaliMishra1st/hydrophone.git
+ * [new branch]      bump-kind-k8s-versions -> bump-kind-k8s-versions
+
