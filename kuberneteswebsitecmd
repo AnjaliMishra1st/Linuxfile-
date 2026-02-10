@@ -1,0 +1,284 @@
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~ (master)
+$ git clone https://github.com/AnjaliMishra1st/website.git
+Cloning into 'website'...
+remote: Enumerating objects: 475775, done.
+remote: Counting objects: 100% (73/73), done.
+remote: Compressing objects: 100% (36/36), done.
+remote: Total 475775 (delta 55), reused 37 (delta 37), pack-reused 475702 (from 2)
+Receiving objects: 100% (475775/475775), 492.41 MiB | 7.64 MiB/s, done.
+Resolving deltas: 100% (354883/354883), done.
+Updating files: 100% (12272/12272), done.
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~ (master)
+$ cd website
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website (main)
+$ git remote add upstream https://github.com/kubernetes/website.git
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website (main)
+$ git remote -v
+origin  https://github.com/AnjaliMishra1st/website.git (fetch)
+origin  https://github.com/AnjaliMishra1st/website.git (push)
+upstream        https://github.com/kubernetes/website.git (fetch)
+upstream        https://github.com/kubernetes/website.git (push)
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website (main)
+$ git fetch upstream
+remote: Enumerating objects: 21840, done.
+remote: Counting objects: 100% (18685/18685), done.
+remote: Compressing objects: 100% (9607/9607), done.
+remote: Total 17685 (delta 11469), reused 12714 (delta 7831), pack-reused 0 (from 0)
+Receiving objects: 100% (17685/17685), 7.93 MiB | 3.72 MiB/s, done.
+Resolving deltas: 100% (11469/11469), completed with 331 local objects.
+From https://github.com/kubernetes/website
+ * [new branch]            Okabe-Junya/cleanup-katacoda-tutorial -> upstream/Okabe-Junya/cleanup-katacoda-tutorial
+ * [new branch]            cfg/update-sig-docs-es-OWNERS_ALIASES -> upstream/cfg/update-sig-docs-es-OWNERS_ALIASES
+ * [new branch]            dev-1.17                -> upstream/dev-1.17
+ * [new branch]            dev-1.18                -> upstream/dev-1.18
+ * [new branch]            dev-1.18-ar.1           -> upstream/dev-1.18-ar.1
+ * [new branch]            dev-1.18-fa.1           -> upstream/dev-1.18-fa.1
+ * [new branch]            dev-1.18-ja.2           -> upstream/dev-1.18-ja.2
+ * [new branch]            dev-1.19                -> upstream/dev-1.19
+ * [new branch]            dev-1.19-ja.1           -> upstream/dev-1.19-ja.1
+ * [new branch]            dev-1.19-ja.2           -> upstream/dev-1.19-ja.2
+ * [new branch]            dev-1.20                -> upstream/dev-1.20
+ * [new branch]            dev-1.22                -> upstream/dev-1.22
+ * [new branch]            dev-1.22-ko.1           -> upstream/dev-1.22-ko.1
+ * [new branch]            dev-1.23                -> upstream/dev-1.23
+ * [new branch]            dev-1.23-bn.1           -> upstream/dev-1.23-bn.1
+ * [new branch]            dev-1.23-ko.3           -> upstream/dev-1.23-ko.3
+ * [new branch]            dev-1.24                -> upstream/dev-1.24
+ * [new branch]            dev-1.24-bn.1           -> upstream/dev-1.24-bn.1
+ * [new branch]            dev-1.25                -> upstream/dev-1.25
+ * [new branch]            dev-1.25-ko.1           -> upstream/dev-1.25-ko.1
+ * [new branch]            dev-1.25-ko.2           -> upstream/dev-1.25-ko.2
+ * [new branch]            dev-1.26                -> upstream/dev-1.26
+ * [new branch]            dev-1.26-ko.1           -> upstream/dev-1.26-ko.1
+ * [new branch]            dev-1.27                -> upstream/dev-1.27
+ * [new branch]            dev-1.27-ko.1           -> upstream/dev-1.27-ko.1
+ * [new branch]            dev-1.28                -> upstream/dev-1.28
+ * [new branch]            dev-1.29                -> upstream/dev-1.29
+ * [new branch]            dev-1.29-ar.1           -> upstream/dev-1.29-ar.1
+ * [new branch]            dev-1.30                -> upstream/dev-1.30
+ * [new branch]            dev-1.30-bn.1           -> upstream/dev-1.30-bn.1
+ * [new branch]            dev-1.31                -> upstream/dev-1.31
+ * [new branch]            dev-1.31-bn.1           -> upstream/dev-1.31-bn.1
+ * [new branch]            dev-1.32                -> upstream/dev-1.32
+ * [new branch]            dev-1.33                -> upstream/dev-1.33
+ * [new branch]            dev-1.33-fa.1           -> upstream/dev-1.33-fa.1
+ * [new branch]            dev-1.34                -> upstream/dev-1.34
+ * [new branch]            dev-1.35                -> upstream/dev-1.35
+ * [new branch]            dev-1.36                -> upstream/dev-1.36
+ * [new branch]            dwa--update-cheatsheet  -> upstream/dwa--update-cheatsheet
+ * [new branch]            issues-48002            -> upstream/issues-48002
+ * [new branch]            main                    -> upstream/main
+ * [new branch]            mickeyboxell-patch-1    -> upstream/mickeyboxell-patch-1
+ * [new branch]            release-1.10            -> upstream/release-1.10
+ * [new branch]            release-1.11            -> upstream/release-1.11
+ * [new branch]            release-1.12            -> upstream/release-1.12
+ * [new branch]            release-1.13            -> upstream/release-1.13
+ * [new branch]            release-1.14            -> upstream/release-1.14
+ * [new branch]            release-1.15            -> upstream/release-1.15
+ * [new branch]            release-1.16            -> upstream/release-1.16
+ * [new branch]            release-1.17            -> upstream/release-1.17
+ * [new branch]            release-1.18            -> upstream/release-1.18
+ * [new branch]            release-1.19            -> upstream/release-1.19
+ * [new branch]            release-1.20            -> upstream/release-1.20
+ * [new branch]            release-1.21            -> upstream/release-1.21
+ * [new branch]            release-1.22            -> upstream/release-1.22
+ * [new branch]            release-1.23            -> upstream/release-1.23
+ * [new branch]            release-1.24            -> upstream/release-1.24
+ * [new branch]            release-1.25            -> upstream/release-1.25
+ * [new branch]            release-1.26            -> upstream/release-1.26
+ * [new branch]            release-1.27            -> upstream/release-1.27
+ * [new branch]            release-1.28            -> upstream/release-1.28
+ * [new branch]            release-1.29            -> upstream/release-1.29
+ * [new branch]            release-1.30            -> upstream/release-1.30
+ * [new branch]            release-1.31            -> upstream/release-1.31
+ * [new branch]            release-1.32            -> upstream/release-1.32
+ * [new branch]            release-1.33            -> upstream/release-1.33
+ * [new branch]            release-1.34            -> upstream/release-1.34
+ * [new branch]            release-1.4             -> upstream/release-1.4
+ * [new branch]            release-1.5             -> upstream/release-1.5
+ * [new branch]            release-1.6             -> upstream/release-1.6
+ * [new branch]            release-1.7             -> upstream/release-1.7
+ * [new branch]            release-1.8             -> upstream/release-1.8
+ * [new branch]            release-1.9             -> upstream/release-1.9
+ * [new branch]            revert-48350-20241015_tidy_page_head -> upstream/revert-48350-20241015_tidy_page_head
+ * [new branch]            update-schedule         -> upstream/update-schedule
+ * [new tag]               969a3db92               -> 969a3db92
+ * [new tag]               begin-docs-migration    -> begin-docs-migration
+ * [new tag]               cf925bb68               -> cf925bb68
+ * [new tag]               chenopis-first-PR-merge -> chenopis-first-PR-merge
+ * [new tag]               netlify-rollback-point  -> netlify-rollback-point
+ * [new tag]               rollback-point-4607     -> rollback-point-4607
+ * [new tag]               snapshot-final-v1.13    -> snapshot-final-v1.13
+ * [new tag]               snapshot-final-v1.14    -> snapshot-final-v1.14
+ * [new tag]               snapshot-final-v1.15    -> snapshot-final-v1.15
+ * [new tag]               snapshot-final-v1.17    -> snapshot-final-v1.17
+ * [new tag]               snapshot-final-v1.18    -> snapshot-final-v1.18
+ * [new tag]               snapshot-final-v1.19    -> snapshot-final-v1.19
+ * [new tag]               snapshot-final-v1.20    -> snapshot-final-v1.20
+ * [new tag]               snapshot-final-v1.21    -> snapshot-final-v1.21
+ * [new tag]               snapshot-final-v1.22    -> snapshot-final-v1.22
+ * [new tag]               snapshot-final-v1.23    -> snapshot-final-v1.23
+ * [new tag]               snapshot-final-v1.24    -> snapshot-final-v1.24
+ * [new tag]               snapshot-final-v1.25    -> snapshot-final-v1.25
+ * [new tag]               snapshot-final-v1.26    -> snapshot-final-v1.26
+ * [new tag]               snapshot-final-v1.27    -> snapshot-final-v1.27
+ * [new tag]               snapshot-final-v1.28    -> snapshot-final-v1.28
+ * [new tag]               snapshot-final-v1.29    -> snapshot-final-v1.29
+ * [new tag]               snapshot-final-v1.30    -> snapshot-final-v1.30
+ * [new tag]               snapshot-final-v1.31    -> snapshot-final-v1.31
+ * [new tag]               snapshot-final-v1.32    -> snapshot-final-v1.32
+ * [new tag]               snapshot-final-v1.33    -> snapshot-final-v1.33
+ * [new tag]               snapshot-final-v1.34    -> snapshot-final-v1.34
+ * [new tag]               snapshot-final-v1.4     -> snapshot-final-v1.4
+ * [new tag]               snapshot-final-v1.5     -> snapshot-final-v1.5
+ * [new tag]               snapshot-final-v1.6     -> snapshot-final-v1.6
+ * [new tag]               snapshot-initial-v1.10  -> snapshot-initial-v1.10
+ * [new tag]               snapshot-initial-v1.11  -> snapshot-initial-v1.11
+ * [new tag]               snapshot-initial-v1.12  -> snapshot-initial-v1.12
+ * [new tag]               snapshot-initial-v1.13  -> snapshot-initial-v1.13
+ * [new tag]               snapshot-initial-v1.14  -> snapshot-initial-v1.14
+ * [new tag]               snapshot-initial-v1.15  -> snapshot-initial-v1.15
+ * [new tag]               snapshot-initial-v1.16  -> snapshot-initial-v1.16
+ * [new tag]               snapshot-initial-v1.17  -> snapshot-initial-v1.17
+ * [new tag]               snapshot-initial-v1.18  -> snapshot-initial-v1.18
+ * [new tag]               snapshot-initial-v1.19  -> snapshot-initial-v1.19
+ * [new tag]               snapshot-initial-v1.20  -> snapshot-initial-v1.20
+ * [new tag]               snapshot-initial-v1.21  -> snapshot-initial-v1.21
+ * [new tag]               snapshot-initial-v1.22  -> snapshot-initial-v1.22
+ * [new tag]               snapshot-initial-v1.23  -> snapshot-initial-v1.23
+ * [new tag]               snapshot-initial-v1.24  -> snapshot-initial-v1.24
+ * [new tag]               snapshot-initial-v1.25  -> snapshot-initial-v1.25
+ * [new tag]               snapshot-initial-v1.26  -> snapshot-initial-v1.26
+ * [new tag]               snapshot-initial-v1.27  -> snapshot-initial-v1.27
+ * [new tag]               snapshot-initial-v1.28  -> snapshot-initial-v1.28
+ * [new tag]               snapshot-initial-v1.29  -> snapshot-initial-v1.29
+ * [new tag]               snapshot-initial-v1.30  -> snapshot-initial-v1.30
+ * [new tag]               snapshot-initial-v1.31  -> snapshot-initial-v1.31
+ * [new tag]               snapshot-initial-v1.32  -> snapshot-initial-v1.32
+ * [new tag]               snapshot-initial-v1.33  -> snapshot-initial-v1.33
+ * [new tag]               snapshot-initial-v1.34  -> snapshot-initial-v1.34
+ * [new tag]               snapshot-initial-v1.35  -> snapshot-initial-v1.35
+ * [new tag]               snapshot-initial-v1.5   -> snapshot-initial-v1.5
+ * [new tag]               snapshot-initial-v1.6   -> snapshot-initial-v1.6
+ * [new tag]               snapshot-initial-v1.7   -> snapshot-initial-v1.7
+ * [new tag]               snapshot-initial-v1.8   -> snapshot-initial-v1.8
+ * [new tag]               snapshot-v1.6-pre-link-update -> snapshot-v1.6-pre-link-update
+ * [new tag]               snapshot-v1.6-repo-link-update -> snapshot-v1.6-repo-link-update
+ * [new tag]               snapshot-v1.7-patch1    -> snapshot-v1.7-patch1
+ * [new tag]               v1.6-rc                 -> v1.6-rc
+ * [new tag]               v1.7-rc                 -> v1.7-rc
+ * [new tag]               freeze-final-v1.4       -> freeze-final-v1.4
+ * [new tag]               freeze-final-v1.5       -> freeze-final-v1.5
+ * [new tag]               freeze-final-v1.6       -> freeze-final-v1.6
+ * [new tag]               snapshot-final-v1.10    -> snapshot-final-v1.10
+ * [new tag]               snapshot-final-v1.7     -> snapshot-final-v1.7
+ * [new tag]               snapshot-final-v1.8     -> snapshot-final-v1.8
+ * [new tag]               snapshot-final-v1.9     -> snapshot-final-v1.9
+ * [new tag]               v1.4-rc                 -> v1.4-rc
+ * [new tag]               v1.5-rc                 -> v1.5-rc
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website (main)
+$ git checkout main
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website (main)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website (main)
+$ git pull upstream main
+From https://github.com/kubernetes/website
+ * branch                  main       -> FETCH_HEAD
+Already up to date.
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website (main)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website (main)
+$ git checkout -b vpa-docs-best-practices
+Switched to a new branch 'vpa-docs-best-practices'
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website (vpa-docs-best-practices)
+$ cd content/en/docs/concepts/workloads/autoscaling
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ ls
+horizontal-pod-autoscale.md  vertical-pod-autoscale.md
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ code vertical-pod-autoscale.md
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ git status
+On branch vpa-docs-best-practices
+nothing to commit, working tree clean
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ git status
+On branch vpa-docs-best-practices
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   vertical-pod-autoscale.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ git add vertical-pod-autoscale.md
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ git status
+On branch vpa-docs-best-practices
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   vertical-pod-autoscale.md
+
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ git commit -m "Add VPA best practices and usage examples"
+[vpa-docs-best-practices 5984da037f] Add VPA best practices and usage examples
+ 1 file changed, 36 insertions(+)
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ git push origin vpa-docs-best-practices
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 1.18 KiB | 31.00 KiB/s, done.
+Total 9 (delta 8), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (8/8), completed with 8 local objects.
+remote:
+remote: Create a pull request for 'vpa-docs-best-practices' on GitHub by visiting:
+remote:      https://github.com/AnjaliMishra1st/website/pull/new/vpa-docs-best-practices
+remote:
+To https://github.com/AnjaliMishra1st/website.git
+ * [new branch]            vpa-docs-best-practices -> vpa-docs-best-practices
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$ ^C
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/website/content/en/docs/concepts/workloads/autoscaling (vpa-docs-best-practices)
+$
+
+
