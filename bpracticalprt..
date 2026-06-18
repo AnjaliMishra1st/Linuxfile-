@@ -1,0 +1,106 @@
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ mkdir day2-practice
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~
+$ cd day2-practice
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ pwd
+/c/Users/mishr/day2-practice
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ ls
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ touch file1.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ touch file2.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ touch notes.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ ls
+file1.txt  file2.txt  notes.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ echo "Hello Linux" > file1.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ echo "I am learning Linux" notes.txt
+I am learning Linux notes.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ cat file1.txt
+Hello Linux
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ cat notes.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ cp file1.txt backup.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ ls
+backup.txt  file1.txt  file2.txt  notes.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ cat backup.txt
+Hello Linux
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ mv backup.txt backup_old.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ ls
+backup_old.txt  file1.txt  file2.txt  notes.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ mkdir documents
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ mv notes.txt documents/
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ ls
+backup_old.txt  documents/  file1.txt  file2.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ ls document
+ls: cannot access 'document': No such file or directory
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ ls documents
+notes.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ rm file2.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ ls
+backup_old.txt  documents/  file1.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ ls
+backup_old.txt  documents/  file1.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ rmdir documents
+rmdir: failed to remove 'documents': Directory not empty
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ rmdir documents
+rmdir: failed to remove 'documents': Directory not empty
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ rm documents/notes.txt
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ rmdir documents
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
+$ rm -r documents
+rm: cannot remove 'documents': No such file or directory
+
+mishr@LAPTOP-ODNDA1FJ MINGW64 ~/day2-practice
